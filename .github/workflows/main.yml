@@ -1,0 +1,78 @@
+name: Flutter CI
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter SDK
+        uses: flutter-actions/setup-flutter@v4
+        with:
+          channel: stable
+          version: 3.29.3
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze code
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Build APK
+        run: flutter build apk --debug
+
+      - name: Build AAB
+        run: flutter build appbundle --release
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      - name: Upload AAB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-aab
+          path: build/app/outputs/bundle/release/app-release.aab
+
+      - name: Crear release en GitHub
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          files: |
+            build/app/outputs/flutter-apk/app-release.apk
+            build/app/outputs/bundle/release/app-release.aab
+
+      - name: Borra los source code assets
+        uses: actions/github-script@v6
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+        with:
+          script: |
+            const tag = process.env.TAG_NAME
+            const { data: release } = await github.rest.repos.getReleaseByTag({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              tag
+            })
+            for (const asset of release.assets) {
+              if (asset.name.endsWith('.zip') || asset.name.endsWith('.tar.gz')) {
+                await github.rest.repos.deleteReleaseAsset({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  asset_id: asset.id
+                })
+                console.log(`Deleted ${asset.name}`)
+              }
+            }
