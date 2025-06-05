@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:fitbuddy/core/widgets/molecules/form_molecules.dart';
 
-// Organismo: Formulario de autenticación simple
-class AuthForm extends StatefulWidget {
+// Organismo: Formulario de registro
+class RegisterForm extends StatefulWidget {
   final void Function(String email, String password, bool acceptedTerms)
   onSubmit;
   final bool loading;
 
-  const AuthForm({super.key, required this.onSubmit, this.loading = false});
+  const RegisterForm({super.key, required this.onSubmit, this.loading = false});
 
   @override
-  State<AuthForm> createState() => _AuthFormState();
+  State<RegisterForm> createState() => _RegisterFormState();
 }
 
-class _AuthFormState extends State<AuthForm> {
+class _RegisterFormState extends State<RegisterForm> {
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();

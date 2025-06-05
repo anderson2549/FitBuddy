@@ -1,5 +1,6 @@
+import 'package:fitbuddy/core/widgets/atoms/forms/custom_checkbox_atom.dart';
+import 'package:fitbuddy/core/widgets/atoms/forms/custom_submit_button_atom.dart';
 import 'package:flutter/material.dart';
-import 'package:fitbuddy/core/widgets/atoms/forms/form_atoms.dart';
 
 // Un campo de texto con label y validación, y un mensaje de error debajo
 class LabeledTextField extends StatelessWidget {
@@ -25,7 +26,7 @@ class LabeledTextField extends StatelessWidget {
       children: [
         Text(label, style: Theme.of(context).textTheme.bodyMedium),
         const SizedBox(height: 4),
-        CustomTextField(
+        LabeledTextField(
           label: label,
           controller: controller,
           validator: validator,
