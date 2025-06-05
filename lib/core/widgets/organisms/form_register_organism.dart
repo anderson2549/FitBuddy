@@ -1,5 +1,8 @@
+import 'package:fitbuddy/core/widgets/molecules/forms/labeled_password_field.dart';
+import 'package:fitbuddy/core/widgets/molecules/forms/labeled_text_field.dart';
+import 'package:fitbuddy/core/widgets/molecules/forms/submit_section.dart';
+import 'package:fitbuddy/core/widgets/molecules/forms/terms_and_conditions_checkbox.dart';
 import 'package:flutter/material.dart';
-import 'package:fitbuddy/core/widgets/molecules/form_molecules.dart';
 
 // Organismo: Formulario de registro
 class RegisterForm extends StatefulWidget {

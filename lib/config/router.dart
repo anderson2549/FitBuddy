@@ -66,5 +66,10 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => RegisterScreen(),
       name: RegisterScreen.name,
     ),
+    GoRoute(
+      path: "/scroll",
+      builder: (context, state) => InfiniteScrollScreen(),
+      name: InfiniteScrollScreen.name,
+    ),
   ],
 );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:fitbuddy/core/widgets/atoms/forms/Button.dart';
 import 'package:fitbuddy/core/widgets/atoms/forms/input_field_atom.dart';
+import 'package:fitbuddy/core/widgets/molecules/forms/submit_section.dart';
 
 class RegisterForm extends StatefulWidget {
   final void Function(String email, String password, bool acceptedTerms)
@@ -129,8 +129,8 @@ class _RegisterFormState extends State<RegisterForm> {
             ],
           ),
           const SizedBox(height: 24),
-          Boton(
-            texto: 'Registrarse',
+          SubmitSection(
+            text: 'Registrarse',
             onPressed: () {
               if (_formKey.currentState!.validate()) {
                 widget.onRegister(

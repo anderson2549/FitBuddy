@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fitbuddy/core/widgets/molecules/search_bar.dart';
+import 'package:fitbuddy/core/widgets/molecules/forms/search_bar.dart';
 
 class PlantillaLista extends StatelessWidget {
   final List<Widget> children;

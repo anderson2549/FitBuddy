@@ -1,4 +1,4 @@
-import 'package:fitbuddy/core/widgets/atoms/forms/Button.dart';
+import 'package:fitbuddy/core/widgets/atoms/forms/button_atom.dart';
 import 'package:flutter/material.dart';
 
 class SearchBar1 extends StatelessWidget {
@@ -10,7 +10,7 @@ class SearchBar1 extends StatelessWidget {
           child: TextField(decoration: InputDecoration(hintText: 'Buscar...')),
         ),
         SizedBox(width: 8),
-        Boton(
+        ButtonAtom(
           texto: 'Buscar',
           onPressed: () {
             // TODO: Implementar la funcionalidad de búsqueda

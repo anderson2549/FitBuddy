@@ -58,9 +58,9 @@ List<MenuItems> appMenuItems = <MenuItems>[
     icon: Icons.book_online_outlined,
   ),
   MenuItems(
-    title: "Screen template atomic",
-    subTitle: "Import Screen",
-    link: "/homescreen",
-    icon: Icons.home_filled,
+    title: "Infinite Scroll",
+    subTitle: "Infinite Scroll",
+    link: "/scroll",
+    icon: Icons.insert_link_outlined,
   ),
 ];
