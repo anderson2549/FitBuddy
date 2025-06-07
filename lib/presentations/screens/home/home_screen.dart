@@ -31,8 +31,6 @@ class _HomeView extends StatelessWidget {
 }
 
 class _CustomListTile extends StatelessWidget {
-  static const String name = 'init';
-
   const _CustomListTile({required this.item});
 
   final MenuItems item;

@@ -127,7 +127,6 @@ class _Slide extends StatelessWidget {
   final String imagePath;
 
   const _Slide({
-    super.key,
     required this.title,
     required this.caption,
     required this.imagePath,
