@@ -41,7 +41,7 @@ class _AnimatedScreenState extends State<AnimatedScreen> {
   }
 
   changeShape() {
-    final ra = new Random();
+    final ra = Random();
     width = ra.nextInt(300) + 120;
     height = ra.nextInt(300) + 120;
     borderRadius = ra.nextInt(300) + 20;

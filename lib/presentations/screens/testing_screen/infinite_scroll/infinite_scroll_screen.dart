@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'dart:developer' as developer;
 
 class InfiniteScrollScreen extends StatefulWidget {
   static const name = 'infinite_scroll_screen';
@@ -23,7 +24,7 @@ class _InfiniteScrollScreenState extends State<InfiniteScrollScreen> {
       if ((scrollController.position.pixels + 500) >=
           scrollController.position.maxScrollExtent) {
         loadNextPage().then((value) {
-          print('Cargando siguiente página');
+          developer.log('Cargando siguiente página', name: 'com.example.app');
         });
       }
     });

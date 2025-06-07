@@ -46,13 +46,9 @@ const _redErrorContainer = Color(
 const _redOnErrorContainer = Color(
   0xFFFFCDD2,
 ); // Un tono más claro para el texto en el contenedor de error
-const _redBackground = Color(0xFFFDECEA);
-const _redOnBackground = Color(0xFF2D2D2D);
 const _redSurface = Colors.white;
 const _redOnSurface = Colors.black;
-const _redSurfaceVariant = Color(
-  0xFFF5F5F5,
-); // Un tono grisáceo para la variante de superficie
+// Un tono grisáceo para la variante de superficie
 const _redOnSurfaceVariant = Color(
   0xFF757575,
 ); // Un tono más oscuro para el texto en la variante de superficie
@@ -76,11 +72,8 @@ final redColorScheme = ColorScheme(
   onError: _redOnError,
   errorContainer: _redErrorContainer,
   onErrorContainer: _redOnErrorContainer,
-  background: _redBackground,
-  onBackground: _redOnBackground,
   surface: _redSurface,
   onSurface: _redOnSurface,
-  surfaceVariant: _redSurfaceVariant,
   onSurfaceVariant: _redOnSurfaceVariant,
   outline: _redOutline,
   shadow: Colors.black, // Color de la sombra
