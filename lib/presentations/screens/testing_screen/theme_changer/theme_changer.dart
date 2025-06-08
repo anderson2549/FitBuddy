@@ -40,8 +40,6 @@ class ThemeChanger extends ConsumerWidget {
 }
 
 class _ThemeChanger extends ConsumerWidget {
-  const _ThemeChanger({super.key});
-
   @override
   Widget build(BuildContext context, ref) {
     final List<Color> colors = ref.watch(colorListProvider);
