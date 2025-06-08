@@ -85,27 +85,70 @@ final redColorScheme = ColorScheme(
   surfaceTint: _redPrimary, // Tinte de la superficie
 );
 
+final redColorSchemeDark = ColorScheme(
+  brightness: Brightness.dark,
+  primary: _redPrimary,
+  onPrimary: _redOnPrimary,
+  primaryContainer: Color(0xFF4A0000),
+  onPrimaryContainer: _redOnPrimaryContainer,
+  secondary: _redSecondary,
+  onSecondary: _redOnSecondary,
+  secondaryContainer: Color(0xFF330000),
+  onSecondaryContainer: _redOnSecondaryContainer,
+  tertiary: _redTertiary,
+  onTertiary: _redOnTertiary,
+  tertiaryContainer: Color(0xFF2D0016),
+  onTertiaryContainer: _redOnTertiaryContainer,
+  error: _redError,
+  onError: _redOnError,
+  errorContainer: Color(0xFF93000A),
+  onErrorContainer: _redOnErrorContainer,
+  surface: Color(0xFF121212),
+  onSurface: Colors.white,
+  onSurfaceVariant: Color(0xFFBDBDBD),
+  outline: Color(0xFF757575),
+  shadow: Colors.black,
+  inverseSurface: Color(0xFFE0E0E0),
+  onInverseSurface: Color(0xFF212121),
+  inversePrimary: Color(0xFFFF8A80),
+  surfaceTint: _redPrimary,
+);
+
 class AppTheme {
   final int selectColor;
   final bool useRedScheme;
+  final bool isDartMode;
 
-  AppTheme({this.selectColor = 0, this.useRedScheme = false})
-    : assert(selectColor >= 0, 'Select color must be greater then 0'),
-      assert(
-        selectColor < colorList.length,
-        'Select color must be less or equals than ${colorList.length}',
-      );
+  AppTheme({
+    this.selectColor = 0,
+    this.useRedScheme = false,
+    this.isDartMode = false,
+  }) : assert(selectColor >= 0, 'Select color must be greater then 0'),
+       assert(
+         selectColor < colorList.length,
+         'Select color must be less or equals than ${colorList.length}',
+       );
 
   ThemeData getTheme() =>
       useRedScheme
           ? ThemeData(
             useMaterial3: true,
-            colorScheme: redColorScheme,
+            brightness: isDartMode ? Brightness.dark : Brightness.light,
+            colorScheme: isDartMode ? redColorSchemeDark : redColorScheme,
             appBarTheme: const AppBarTheme(centerTitle: false),
           )
           : ThemeData(
             useMaterial3: true,
+            brightness: isDartMode ? Brightness.dark : Brightness.light,
             colorSchemeSeed: colorList[selectColor],
             appBarTheme: const AppBarTheme(centerTitle: false),
           );
+
+  AppTheme copyWith({int? selectColor, bool? useRedScheme, bool? isDartMode}) {
+    return AppTheme(
+      selectColor: selectColor ?? this.selectColor,
+      useRedScheme: useRedScheme ?? this.useRedScheme,
+      isDartMode: isDartMode ?? this.isDartMode,
+    );
+  }
 }

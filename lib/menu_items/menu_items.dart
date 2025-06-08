@@ -63,4 +63,10 @@ List<MenuItems> appMenuItems = <MenuItems>[
     link: "/scroll",
     icon: Icons.insert_link_outlined,
   ),
+  MenuItems(
+    title: "control theme",
+    subTitle: "control theme",
+    link: "/controltheme",
+    icon: Icons.dark_mode_outlined,
+  ),
 ];

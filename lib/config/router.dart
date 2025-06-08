@@ -71,5 +71,10 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => InfiniteScrollScreen(),
       name: InfiniteScrollScreen.name,
     ),
+    GoRoute(
+      path: "/controltheme",
+      builder: (context, state) => ThemeChanger(),
+      name: ThemeChanger.name,
+    ),
   ],
 );

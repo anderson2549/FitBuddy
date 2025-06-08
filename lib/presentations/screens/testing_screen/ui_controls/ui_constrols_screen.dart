@@ -81,7 +81,6 @@ class _ControlUIViewState extends State<_ControlUIView> {
           ],
         ),
 
-        //TODO dsds
         CheckboxListTile(
           title: Text('Desayuno?'),
           subtitle: Text('Quiere desa'),

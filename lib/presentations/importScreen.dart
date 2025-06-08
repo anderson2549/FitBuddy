@@ -9,3 +9,4 @@ export 'package:fitbuddy/presentations/screens/testing_screen/infinite_scroll/in
 export 'package:fitbuddy/presentations/screens/testing_screen/progress/progress_screen.dart';
 export 'package:fitbuddy/presentations/screens/testing_screen/snackbar/snackbar_screen.dart';
 export 'package:fitbuddy/presentations/screens/testing_screen/ui_controls/ui_constrols_screen.dart';
+export 'package:fitbuddy/presentations/screens/testing_screen/theme_changer/theme_changer.dart';
