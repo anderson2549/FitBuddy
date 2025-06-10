@@ -1,0 +1,35 @@
+{
+    "hello": "¡Hola {userName} tu edad es {age}!",
+    "@hello": {
+        "description": "¡Hola  {userName} tu edad es {age}!",
+        "placeholders": {
+            "userName": {
+                "type": "String",
+                "example": "Bob"
+            },
+            "age": {
+                "type": "int",
+                "example": "30"
+            }
+        }
+    },
+    "menu_buttons_title": "Botones",
+    "menu_buttons_title_example": "Botones",
+    "menu_buttons_subtitle": "Varios botones en flutter",
+    "menu_cards_title": "Tarjetas",
+    "menu_cards_subtitle": "Un contenedor estilizado",
+    "menu_progress_title": "Indicadores de progreso",
+    "menu_progress_subtitle": "Un contenedor estilizado",
+    "menu_snackbars_title": "Snackbars y diálogos",
+    "menu_snackbars_subtitle": "Snackbars",
+    "menu_animations_title": "Animaciones",
+    "menu_animations_subtitle": "Animación",
+    "menu_uicontrols_title": "Controles UI",
+    "menu_uicontrols_subtitle": "Controles",
+    "menu_tutorial_title": "Tutorial",
+    "menu_tutorial_subtitle": "Tutorial pequeño",
+    "menu_scroll_title": "Scroll infinito",
+    "menu_scroll_subtitle": "Scroll infinito",
+    "menu_controltheme_title": "Control de tema",
+    "menu_controltheme_subtitle": "Control de tema"
+}

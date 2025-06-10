@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
 class MenuItems {
-  final String title;
-  final String subTitle;
+  final String titleKey;
+  final String subTitleKey;
   final String link;
   final IconData icon;
 
   MenuItems({
-    required this.title,
-    required this.subTitle,
+    required this.titleKey,
+    required this.subTitleKey,
     required this.link,
     required this.icon,
   });
@@ -16,56 +16,56 @@ class MenuItems {
 
 List<MenuItems> appMenuItems = <MenuItems>[
   MenuItems(
-    title: "Botones",
-    subTitle: "Varios botones en flutter",
+    titleKey: "menu_buttons_title",
+    subTitleKey: "menu_buttons_subtitle",
     link: "/buttons",
     icon: Icons.smart_button_outlined,
   ),
   MenuItems(
-    title: "Tarjetas",
-    subTitle: "Un contenedor estilizado",
+    titleKey: "menu_cards_title",
+    subTitleKey: "menu_cards_subtitle",
     link: "/cards",
     icon: Icons.credit_card,
   ),
   MenuItems(
-    title: "Progress indicators",
-    subTitle: "Un contenedor estilizado",
+    titleKey: "menu_progress_title",
+    subTitleKey: "menu_progress_subtitle",
     link: "/progress",
     icon: Icons.refresh_rounded,
   ),
   MenuItems(
-    title: "Snackbars y dialogos",
-    subTitle: "snackbars",
+    titleKey: "menu_snackbars_title",
+    subTitleKey: "menu_snackbars_subtitle",
     link: "/snackbars",
     icon: Icons.info_outline,
   ),
   MenuItems(
-    title: "Animations",
-    subTitle: "Animacion",
+    titleKey: "menu_animations_title",
+    subTitleKey: "menu_animations_subtitle",
     link: "/animation",
     icon: Icons.animation,
   ),
   MenuItems(
-    title: "Ui controls",
-    subTitle: "Controles",
+    titleKey: "menu_uicontrols_title",
+    subTitleKey: "menu_uicontrols_subtitle",
     link: "/uicontrols",
     icon: Icons.construction_sharp,
   ),
   MenuItems(
-    title: "Tutorial",
-    subTitle: "Tutorial pequeño",
+    titleKey: "menu_tutorial_title",
+    subTitleKey: "menu_tutorial_subtitle",
     link: "/tutorial",
     icon: Icons.book_online_outlined,
   ),
   MenuItems(
-    title: "Infinite Scroll",
-    subTitle: "Infinite Scroll",
+    titleKey: "menu_scroll_title",
+    subTitleKey: "menu_scroll_subtitle",
     link: "/scroll",
     icon: Icons.insert_link_outlined,
   ),
   MenuItems(
-    title: "control theme",
-    subTitle: "control theme",
+    titleKey: "menu_controltheme_title",
+    subTitleKey: "menu_controltheme_subtitle",
     link: "/controltheme",
     icon: Icons.dark_mode_outlined,
   ),

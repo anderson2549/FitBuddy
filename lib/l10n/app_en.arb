@@ -1,0 +1,36 @@
+{
+  
+  "hello": "Hello {userName} you age {age}!",
+  "@hello": {
+    "description": "A message with a single parameter",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "example": "Bob"
+      },
+      "age": {
+        "type": "int",
+        "example": "30"
+      }
+    }
+  },
+  "menu_buttons_title": "Buttons",
+  "menu_buttons_title_example": "Buttons",
+  "menu_buttons_subtitle": "Various buttons in Flutter",
+  "menu_cards_title": "Cards",
+  "menu_cards_subtitle": "A styled container",
+  "menu_progress_title": "Progress indicators",
+  "menu_progress_subtitle": "A styled container",
+  "menu_snackbars_title": "Snackbars and dialogs",
+  "menu_snackbars_subtitle": "Snackbars",
+  "menu_animations_title": "Animations",
+  "menu_animations_subtitle": "Animation",
+  "menu_uicontrols_title": "UI controls",
+  "menu_uicontrols_subtitle": "Controls",
+  "menu_tutorial_title": "Tutorial",
+  "menu_tutorial_subtitle": "Small tutorial",
+  "menu_scroll_title": "Infinite Scroll",
+  "menu_scroll_subtitle": "Infinite Scroll",
+  "menu_controltheme_title": "Control theme",
+  "menu_controltheme_subtitle": "Control theme"
+}
