@@ -1,11 +1,16 @@
 {
-  "hello": "Hello {userName}",
+  
+  "hello": "Hello {userName} you age {age}!",
   "@hello": {
     "description": "A message with a single parameter",
     "placeholders": {
       "userName": {
         "type": "String",
         "example": "Bob"
+      },
+      "age": {
+        "type": "int",
+        "example": "30"
       }
     }
   },

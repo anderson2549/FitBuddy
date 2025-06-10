@@ -9,8 +9,8 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
-  String hello(String userName) {
-    return 'Hello $userName';
+  String hello(String userName, int age) {
+    return 'Hello $userName you age $age!';
   }
 
   @override

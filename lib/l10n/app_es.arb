@@ -1,11 +1,15 @@
 {
-    "helloWorld": "¡Hola  {userName} !",
+    "hello": "¡Hola {userName} tu edad es {age}!",
     "@hello": {
-        "description": "A message with a single parameter",
+        "description": "¡Hola  {userName} tu edad es {age}!",
         "placeholders": {
             "userName": {
                 "type": "String",
                 "example": "Bob"
+            },
+            "age": {
+                "type": "int",
+                "example": "30"
             }
         }
     },

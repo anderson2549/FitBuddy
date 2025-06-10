@@ -98,8 +98,8 @@ abstract class AppLocalizations {
   /// A message with a single parameter
   ///
   /// In en, this message translates to:
-  /// **'Hello {userName}'**
-  String hello(String userName);
+  /// **'Hello {userName} you age {age}!'**
+  String hello(String userName, int age);
 
   /// No description provided for @menu_buttons_title.
   ///

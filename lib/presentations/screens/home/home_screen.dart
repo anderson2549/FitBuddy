@@ -1,49 +1,38 @@
-import 'package:fitbuddy/app_localizations.localizations_access.g.dart';
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fitbuddy/menu_items/menu_items.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fitbuddy/config/provider/locale_provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
   static const String name = 'init';
 
   @override
-  Widget build(BuildContext context) {
-    // LocalizationAccessGenerator
+  Widget build(BuildContext context, WidgetRef ref) {
+    final locale = ref.watch(localeProvider);
 
     return Scaffold(
-      //appBar: AppBar(title: TextLang('menu_animations_title')),
+      appBar: AppBar(
+        title: TextTranslation('hello', positionalArgs: ['Anderson', 12]),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.language),
+            tooltip: 'Cambiar idioma',
+            onPressed: () {
+              showLanguageSelector(
+                context,
+                currentLocale: locale,
+                onSelected: (newLocale) {
+                  ref.read(localeProvider.notifier).state = newLocale;
+                },
+              );
+            },
+          ),
+        ],
+      ),
       body: _HomeView(),
-    );
-  }
-}
-
-class TextTranslation extends StatelessWidget {
-  final String? data;
-  final Key? key;
-  final TextStyle? style;
-  final TextAlign? textAlign;
-  final TextOverflow? overflow;
-  final int? maxLines;
-
-  const TextTranslation(
-    this.data, {
-    this.key,
-    this.style,
-    this.textAlign,
-    this.overflow,
-    this.maxLines,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      TextLang(context).getByKey('data') ?? '',
-      key: key,
-      style: style,
-      textAlign: textAlign,
-      overflow: overflow,
-      maxLines: maxLines,
     );
   }
 }
@@ -81,4 +70,41 @@ class _CustomListTile extends StatelessWidget {
       },
     );
   }
+}
+
+void showLanguageSelector(
+  BuildContext context, {
+  Locale? currentLocale,
+  required void Function(Locale) onSelected,
+}) {
+  showModalBottomSheet(
+    context: context,
+    builder: (ctx) {
+      return SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ListTile(
+              leading: const Icon(Icons.language),
+              title: const Text('Español'),
+              selected: currentLocale?.languageCode == 'es',
+              onTap: () {
+                Navigator.of(ctx).pop();
+                onSelected(const Locale('es'));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.language),
+              title: const Text('English'),
+              selected: currentLocale?.languageCode == 'en',
+              onTap: () {
+                Navigator.of(ctx).pop();
+                onSelected(const Locale('en'));
+              },
+            ),
+          ],
+        ),
+      );
+    },
+  );
 }
