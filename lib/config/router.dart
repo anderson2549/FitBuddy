@@ -12,19 +12,6 @@ final GoRouter appRouter = GoRouter(
       builder: (BuildContext context, GoRouterState state) {
         return const HomeScreen();
       },
-      /*routes: <RouteBase>[
-        GoRoute(
-          path: 'details',
-          builder: (BuildContext context, GoRouterState state) {
-            return const DetailsScreen();
-          },
-        ),
-
-        {
-        "/buttons":(context)=> ButtonsScreen(),
-        "/cards":(context)=> CardsScreen(),
-      }
-      ],*/
     ),
     GoRoute(
       path: "/buttons",
@@ -62,7 +49,7 @@ final GoRouter appRouter = GoRouter(
       name: AppTutorialScreen.name,
     ),
     GoRoute(
-      path: "/homescreen",
+      path: "/register",
       builder: (context, state) => RegisterScreen(),
       name: RegisterScreen.name,
     ),

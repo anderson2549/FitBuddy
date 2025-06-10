@@ -69,4 +69,10 @@ List<MenuItems> appMenuItems = <MenuItems>[
     link: "/controltheme",
     icon: Icons.dark_mode_outlined,
   ),
+  MenuItems(
+    titleKey: "Registro",
+    subTitleKey: "Registro",
+    link: "/register",
+    icon: Icons.dark_mode_outlined,
+  ),
 ];

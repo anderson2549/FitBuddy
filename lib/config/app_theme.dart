@@ -121,7 +121,7 @@ class AppTheme {
 
   AppTheme({
     this.selectColor = 0,
-    this.useRedScheme = false,
+    this.useRedScheme = true,
     this.isDartMode = false,
   }) : assert(selectColor >= 0, 'Select color must be greater then 0'),
        assert(

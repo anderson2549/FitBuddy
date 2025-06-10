@@ -26,7 +26,7 @@ class TextTranslation extends StatelessWidget {
     String translatedText =
         (textLang.getByKey(data) ??
             textLang.getByKeyWithArgs(data, positionalArgs: positionalArgs)) ??
-        '';
+        data;
 
     return Text(
       translatedText,
