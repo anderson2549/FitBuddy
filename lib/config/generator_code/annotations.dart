@@ -1,0 +1,3 @@
+class GenerateLocalizationsAccess {
+  const GenerateLocalizationsAccess();
+}

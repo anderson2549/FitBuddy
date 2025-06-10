@@ -1,0 +1,18 @@
+targets:
+  $default:
+    builders:
+      # A SharedPartBuilder which uses the combining builder
+      fitbuddy|localizations_access_builder:
+        enabled: true
+        generate_for:
+          - lib/app_localizations.dart
+
+
+builders:
+  localizations_access_builder:
+    import: "package:fitbuddy/config/generator_code/localizations_access_generator.dart"
+    builder_factories: ["localizationAccessBuilder"]
+    build_extensions: {"^lib/app_localizations.dart": ["lib/config/generator_code/resultado/app_localizations.localizations_access.g.dart"]}
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["source_gen|combining_builder"]

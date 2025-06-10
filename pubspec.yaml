@@ -28,15 +28,23 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  analyzer: ^7.4.5
   animate_do: ^4.2.0
+  build_runner: ^2.4.15
   cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   flutter_riverpod: ^2.6.1
   go_router: ^15.1.2
+  intl: any
+#  source_gen: ^2.0.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0
+  source_gen: ^2.0.0
+
   flutter_test:
     sdk: flutter
 
@@ -44,7 +52,7 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 # The following section is specific to Flutter packages.
 flutter:
-
+  generate: true
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
