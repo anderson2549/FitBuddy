@@ -59,7 +59,7 @@ class _PerfilViewState extends State<PerfilView> {
               const SizedBox(height: 16),
               // Nombre
               const Text(
-                'Victoria Robertson',
+                'Victo Robertson',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(height: 32),

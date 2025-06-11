@@ -19,10 +19,10 @@ class _MainScreenState extends State<MainScreen> {
 
   final List<Widget> _screens = const [
     PerfilView(),
-    RutinaView(),
+    RoutinesView(),
     HomeView(),
-    ProgresoView(),
-    NotificacionesView(),
+    ProgressView(),
+    NotificationsView(),
   ];
 
   @override
@@ -32,7 +32,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Main Screen',
+          '',
           style: TextStyle(color: theme.colorScheme.onPrimary),
         ),
         backgroundColor: theme.colorScheme.primary,
