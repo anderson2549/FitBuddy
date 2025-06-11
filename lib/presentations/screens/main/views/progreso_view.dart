@@ -10,7 +10,7 @@ class ProgressView extends StatelessWidget {
     // Datos de ejemplo para la gráfica
     final values = <double>[0.7, 0.5, 0.9, 0.8, 0.6, 0.7, 0.5, 0.5];
 
-    Widget _buildBar(double fraction) {
+    Widget buildBar(double fraction) {
       const barHeight = 120.0;
       return Column(
         mainAxisSize: MainAxisSize.min,
@@ -85,7 +85,7 @@ class ProgressView extends StatelessWidget {
                           .map(
                             (v) => Padding(
                               padding: const EdgeInsets.only(right: 16),
-                              child: _buildBar(v),
+                              child: buildBar(v),
                             ),
                           )
                           .toList(),
