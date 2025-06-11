@@ -63,5 +63,15 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) => ThemeChanger(),
       name: ThemeChanger.name,
     ),
+    GoRoute(
+      path: "/login",
+      builder: (context, state) => LoginScreen(),
+      name: LoginScreen.name,
+    ),
+    GoRoute(
+      path: "/main",
+      builder: (context, state) => MainScreen(),
+      name: MainScreen.name,
+    ),
   ],
 );

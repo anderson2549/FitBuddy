@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fitbuddy/core/widgets/organisms/register_form.dart'; // Importa el formulario
+import 'package:go_router/go_router.dart';
 
 class RegisterTemplate extends StatelessWidget {
   final void Function(String email, String password, bool acceptedTerms)
@@ -24,6 +25,13 @@ class RegisterTemplate extends StatelessWidget {
             ),
             const SizedBox(height: 24),
             RegisterForm(onRegister: onRegister), // Usa el formulario aquí
+            const SizedBox(height: 16),
+            TextButton(
+              onPressed: () {
+                context.go('/login'); // Navigate to the login screen
+              },
+              child: const Text('¿Ya tienes una cuenta? Inicia sesión'),
+            ),
           ],
         ),
       ),

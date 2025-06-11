@@ -15,7 +15,7 @@ class MenuItems {
 }
 
 List<MenuItems> appMenuItems = <MenuItems>[
-  MenuItems(
+  /*MenuItems(
     titleKey: "menu_buttons_title",
     subTitleKey: "menu_buttons_subtitle",
     link: "/buttons",
@@ -62,7 +62,7 @@ List<MenuItems> appMenuItems = <MenuItems>[
     subTitleKey: "menu_scroll_subtitle",
     link: "/scroll",
     icon: Icons.insert_link_outlined,
-  ),
+  ),*/
   MenuItems(
     titleKey: "menu_controltheme_title",
     subTitleKey: "menu_controltheme_subtitle",
@@ -74,5 +74,17 @@ List<MenuItems> appMenuItems = <MenuItems>[
     subTitleKey: "Registro",
     link: "/register",
     icon: Icons.dark_mode_outlined,
+  ),
+  MenuItems(
+    titleKey: "Login",
+    subTitleKey: "Iniciar sesión",
+    link: "/login",
+    icon: Icons.dark_mode_outlined,
+  ),
+  MenuItems(
+    titleKey: "menu_main_title",
+    subTitleKey: "menu_main_subtitle",
+    link: "/main",
+    icon: Icons.menu,
   ),
 ];

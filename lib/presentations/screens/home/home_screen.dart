@@ -4,7 +4,9 @@ import 'package:go_router/go_router.dart';
 import 'package:fitbuddy/menu_items/menu_items.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fitbuddy/config/provider/locale_provider.dart';
-
+import 'package:fitbuddy/core/widgets/atoms/forms/custom_submit_button_atom.dart';
+import 'package:fitbuddy/core/widgets/molecules/forms/submit_section.dart';
+/*
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
   static const String name = 'init';
@@ -107,4 +109,46 @@ void showLanguageSelector(
       );
     },
   );
+}*/
+
+class HomeScreen extends StatelessWidget {
+  static const name = 'home_screen';
+
+  const HomeScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text(
+              'Bienvenido a FitBuddy',
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 32),
+            SubmitSection(
+              text: 'Registrar',
+              onPressed: () {
+                context.go('/register');
+              },
+            ),
+            const SizedBox(height: 16),
+            SubmitSection(
+              text: 'Login',
+              onPressed: () {
+                context.go('/login');
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

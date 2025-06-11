@@ -10,3 +10,5 @@ export 'package:fitbuddy/presentations/screens/testing_screen/progress/progress_
 export 'package:fitbuddy/presentations/screens/testing_screen/snackbar/snackbar_screen.dart';
 export 'package:fitbuddy/presentations/screens/testing_screen/ui_controls/ui_constrols_screen.dart';
 export 'package:fitbuddy/presentations/screens/testing_screen/theme_changer/theme_changer.dart';
+export 'package:fitbuddy/presentations/screens/login/login_screen.dart';
+export 'package:fitbuddy/presentations/screens/main/main_screen.dart';

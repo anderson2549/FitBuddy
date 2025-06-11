@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fitbuddy/core/widgets/molecules/forms/submit_section.dart';
 
 class CustomSubmitButton extends StatelessWidget {
   final String text;
@@ -14,19 +15,6 @@ class CustomSubmitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: ElevatedButton(
-        onPressed: loading ? null : onPressed,
-        child:
-            loading
-                ? const SizedBox(
-                  width: 20,
-                  height: 20,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                )
-                : Text(text),
-      ),
-    );
+    return SubmitSection(text: text, onPressed: onPressed, loading: loading);
   }
 }
