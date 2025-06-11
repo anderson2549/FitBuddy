@@ -1,3 +1,4 @@
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
 
 class ProgressView extends StatelessWidget {
@@ -7,7 +8,7 @@ class ProgressView extends StatelessWidget {
   Widget build(BuildContext context) {
     const red = Color(0xFFD32F2F);
     // Datos de ejemplo para la gráfica
-    final values = <double>[0.7, 0.5, 0.9, 0.8, 0.6, 0.7, 0.5];
+    final values = <double>[0.7, 0.5, 0.9, 0.8, 0.6, 0.7, 0.5, 0.5];
 
     Widget _buildBar(double fraction) {
       const barHeight = 120.0;
@@ -41,10 +42,7 @@ class ProgressView extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 8),
-          const Text(
-            'Item',
-            style: TextStyle(fontSize: 12),
-          ),
+          const TextTranslation('Item', style: TextStyle(fontSize: 12)),
         ],
       );
     }
@@ -57,7 +55,7 @@ class ProgressView extends StatelessWidget {
           children: [
             // Título
             const Center(
-              child: Text(
+              child: TextTranslation(
                 'Progreso Fit',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
@@ -82,12 +80,15 @@ class ProgressView extends StatelessWidget {
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  children: values
-                      .map((v) => Padding(
-                            padding: const EdgeInsets.only(right: 16),
-                            child: _buildBar(v),
-                          ))
-                      .toList(),
+                  children:
+                      values
+                          .map(
+                            (v) => Padding(
+                              padding: const EdgeInsets.only(right: 16),
+                              child: _buildBar(v),
+                            ),
+                          )
+                          .toList(),
                 ),
               ),
             ),
@@ -109,7 +110,7 @@ class ProgressView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
-                        Text(
+                        TextTranslation(
                           'Heading',
                           style: TextStyle(
                             fontSize: 18,
@@ -117,7 +118,7 @@ class ProgressView extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 4),
-                        Text(
+                        TextTranslation(
                           'Heading',
                           style: TextStyle(fontSize: 14, color: Colors.black54),
                         ),
@@ -127,17 +128,17 @@ class ProgressView extends StatelessWidget {
                   const Divider(height: 1, color: Colors.grey),
 
                   // Lista de ítems
-                  ...List.generate(4, (i) {
+                  ...List.generate(50, (i) {
                     return ListTile(
                       leading: const Icon(Icons.star_border),
-                      title: const Text('Exercise Top'),
-                      subtitle: const Text('Menu description.'),
+                      title: const TextTranslation('Exercise Top'),
+                      subtitle: const TextTranslation('Menu description.'),
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: const [
                           Icon(Icons.arrow_upward, size: 16),
                           SizedBox(width: 4),
-                          Text('A'),
+                          TextTranslation('A'),
                         ],
                       ),
                     );
