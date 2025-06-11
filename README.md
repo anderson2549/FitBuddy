@@ -39,4 +39,25 @@ La app soporta múltiples idiomas usando archivos ARB y la generación automáti
 - [Flutter Internationalization Guide](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization)
 - [Arb file format](https://github.com/google/app-resource-bundle/wiki/ApplicationResourceBundleSpecification)
 
----
+## Generar Android App Bundle (AAB)
+
+Para generar un compilado de AAB para distribución en Google Play, sigue estos pasos:
+
+1. Asegúrate de que todos los cambios estén confirmados en tu repositorio.
+2. Crea un nuevo tag para la versión que deseas compilar:
+   ```bash
+   git tag v1.0.0
+   git push origin v1.0.0
+   ```
+   Reemplaza `v1.0.0` con el número de versión correspondiente.
+3. Ejecuta el comando de compilación de Flutter:
+   ```bash
+   flutter build appbundle
+   ```
+4. El archivo generado estará en la carpeta `build/app/outputs/bundle/release/` con el nombre `app.aab`.
+5. Sube el archivo `.aab` a Google Play Console para su distribución.
+
+### Recursos útiles
+
+- [Flutter Build Documentation](https://docs.flutter.dev/deployment/android)
+- [Google Play Console](https://play.google.com/console)
