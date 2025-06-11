@@ -11,7 +11,7 @@ import 'package:fitbuddy/l10n/app_localizations.dart';
 class TextLang {
   final BuildContext _buildContext;
 
-  TextLang(BuildContext this._buildContext);
+  TextLang(this._buildContext);
 
   /// Obtiene una traducción por clave. Si la clave corresponde a un método con parámetros,
   /// usa [getByKeyWithArgs].

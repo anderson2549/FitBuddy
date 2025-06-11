@@ -8,7 +8,6 @@ class PerfilView extends StatefulWidget {
 }
 
 class _PerfilViewState extends State<PerfilView> {
-  int _currentIndex = 0;
   final Color _red = const Color(0xFFD32F2F);
 
   Widget _buildMenuItem(String title) {

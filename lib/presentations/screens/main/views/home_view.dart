@@ -9,7 +9,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     const red = Color(0xFFD32F2F);
 
-    Widget _buildObjectiveItem(String key, Color dotColor) {
+    Widget buildObjectiveItem(String key, Color dotColor) {
       return Column(
         children: [
           Row(
@@ -128,9 +128,9 @@ class HomeView extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Lista de objetivos
-            _buildObjectiveItem('objective_lose_weight', red),
-            _buildObjectiveItem('objective_gain_muscle', red.withOpacity(0.7)),
-            _buildObjectiveItem('objective_improve_fitness', red),
+            buildObjectiveItem('objective_lose_weight', red),
+            buildObjectiveItem('objective_gain_muscle', red.withOpacity(0.7)),
+            buildObjectiveItem('objective_improve_fitness', red),
           ],
         ),
       ),

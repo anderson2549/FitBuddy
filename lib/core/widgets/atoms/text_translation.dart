@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 class TextTranslation extends StatelessWidget {
   final String data;
   final List<dynamic>? positionalArgs;
-  final Key? key;
   final TextStyle? style;
   final TextAlign? textAlign;
   final TextOverflow? overflow;
@@ -13,7 +12,6 @@ class TextTranslation extends StatelessWidget {
   const TextTranslation(
     this.data, {
     this.positionalArgs,
-    this.key,
     this.style,
     this.textAlign,
     this.overflow,
