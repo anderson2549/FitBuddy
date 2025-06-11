@@ -62,8 +62,7 @@ import 'app_localizations_es.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -71,8 +70,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,18 +82,17 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('es'),
+    Locale('es')
   ];
 
   /// A message with a single parameter
@@ -217,10 +214,153 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Control theme'**
   String get menu_controltheme_subtitle;
+
+  /// No description provided for @home_title.
+  ///
+  /// In en, this message translates to:
+  /// **'FitBody'**
+  String get home_title;
+
+  /// No description provided for @objectives_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Objectives:'**
+  String get objectives_title;
+
+  /// No description provided for @progress_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress'**
+  String get progress_label;
+
+  /// No description provided for @objective_lose_weight.
+  ///
+  /// In en, this message translates to:
+  /// **'Lose weight'**
+  String get objective_lose_weight;
+
+  /// No description provided for @objective_gain_muscle.
+  ///
+  /// In en, this message translates to:
+  /// **'Gain muscle mass'**
+  String get objective_gain_muscle;
+
+  /// No description provided for @objective_improve_fitness.
+  ///
+  /// In en, this message translates to:
+  /// **'Improve fitness and quality of life'**
+  String get objective_improve_fitness;
+
+  /// No description provided for @back_button.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back_button;
+
+  /// No description provided for @routines_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Routines'**
+  String get routines_title;
+
+  /// No description provided for @routine_start.
+  ///
+  /// In en, this message translates to:
+  /// **'START'**
+  String get routine_start;
+
+  /// No description provided for @routine_warmup.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm-up'**
+  String get routine_warmup;
+
+  /// No description provided for @routine_hip.
+  ///
+  /// In en, this message translates to:
+  /// **'Hip'**
+  String get routine_hip;
+
+  /// No description provided for @routine_abs_waist.
+  ///
+  /// In en, this message translates to:
+  /// **'Abs - Waist'**
+  String get routine_abs_waist;
+
+  /// No description provided for @routine_legs_glutes.
+  ///
+  /// In en, this message translates to:
+  /// **'Legs - Glutes'**
+  String get routine_legs_glutes;
+
+  /// No description provided for @routine_chest.
+  ///
+  /// In en, this message translates to:
+  /// **'Chest'**
+  String get routine_chest;
+
+  /// No description provided for @routine_biceps_forearms.
+  ///
+  /// In en, this message translates to:
+  /// **'Biceps - Forearms'**
+  String get routine_biceps_forearms;
+
+  /// No description provided for @routine_triceps.
+  ///
+  /// In en, this message translates to:
+  /// **'Triceps'**
+  String get routine_triceps;
+
+  /// No description provided for @routine_back_lumbar.
+  ///
+  /// In en, this message translates to:
+  /// **'Back - Lumbar'**
+  String get routine_back_lumbar;
+
+  /// No description provided for @routine_shoulders_traps.
+  ///
+  /// In en, this message translates to:
+  /// **'Shoulders - Traps'**
+  String get routine_shoulders_traps;
+
+  /// No description provided for @progress_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Progress Fit'**
+  String get progress_title;
+
+  /// No description provided for @progress_item_label.
+  ///
+  /// In en, this message translates to:
+  /// **'Item'**
+  String get progress_item_label;
+
+  /// No description provided for @progress_card_heading.
+  ///
+  /// In en, this message translates to:
+  /// **'Heading'**
+  String get progress_card_heading;
+
+  /// No description provided for @progress_card_subheading.
+  ///
+  /// In en, this message translates to:
+  /// **'Subheading'**
+  String get progress_card_subheading;
+
+  /// No description provided for @progress_item_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise Top'**
+  String get progress_item_title;
+
+  /// No description provided for @progress_item_description.
+  ///
+  /// In en, this message translates to:
+  /// **'Menu description.'**
+  String get progress_item_description;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -229,26 +369,25 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) =>
-      <String>['en', 'es'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'es'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+
+
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en':
-      return AppLocalizationsEn();
-    case 'es':
-      return AppLocalizationsEs();
+    case 'en': return AppLocalizationsEn();
+    case 'es': return AppLocalizationsEs();
   }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
+    'that was used.'
   );
 }

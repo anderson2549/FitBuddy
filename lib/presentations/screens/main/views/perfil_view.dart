@@ -1,3 +1,4 @@
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
 
 class PerfilView extends StatefulWidget {
@@ -21,7 +22,7 @@ class _PerfilViewState extends State<PerfilView> {
               decoration: BoxDecoration(color: _red, shape: BoxShape.circle),
             ),
             const SizedBox(width: 12),
-            Text(title, style: const TextStyle(fontSize: 16)),
+            TextTranslation(title, style: const TextStyle(fontSize: 16)),
           ],
         ),
         const SizedBox(height: 12),
@@ -40,7 +41,10 @@ class _PerfilViewState extends State<PerfilView> {
         leadingWidth: 70,
         leading: TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text('Atrás', style: TextStyle(color: _red, fontSize: 16)),
+          child: TextTranslation(
+            'Atrás',
+            style: TextStyle(color: _red, fontSize: 16),
+          ),
         ),
       ),
       body: SafeArea(
@@ -58,7 +62,7 @@ class _PerfilViewState extends State<PerfilView> {
               ),
               const SizedBox(height: 16),
               // Nombre
-              const Text(
+              const TextTranslation(
                 'Victo Robertson',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),

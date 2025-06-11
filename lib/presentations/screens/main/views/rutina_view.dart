@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 
 class RoutinesView extends StatelessWidget {
   const RoutinesView({super.key});
@@ -9,15 +10,15 @@ class RoutinesView extends StatelessWidget {
 
     // Tus datos de rutinas
     final routines = <Map<String, dynamic>>[
-      {'name': 'Calentamiento', 'color': red},
-      {'name': 'Cadera', 'color': red.withOpacity(0.7)},
-      {'name': 'Abdomen - cintura', 'color': red},
-      {'name': 'Pierna - Pantorrilla - Glúteo', 'color': red.withOpacity(0.7)},
-      {'name': 'Pecho', 'color': red},
-      {'name': 'Bíceps - Antebrazo', 'color': red.withOpacity(0.7)},
-      {'name': 'Tríceps', 'color': red},
-      {'name': 'Espalda - Lumbar', 'color': red.withOpacity(0.7)},
-      {'name': 'Hombro - Trapecio', 'color': red},
+      {'name': 'routine_warmup', 'color': red},
+      {'name': 'routine_hip', 'color': red.withOpacity(0.7)},
+      {'name': 'routine_abs_waist', 'color': red},
+      {'name': 'routine_legs_glutes', 'color': red.withOpacity(0.7)},
+      {'name': 'routine_chest', 'color': red},
+      {'name': 'routine_biceps_forearms', 'color': red.withOpacity(0.7)},
+      {'name': 'routine_triceps', 'color': red},
+      {'name': 'routine_back_lumbar', 'color': red.withOpacity(0.7)},
+      {'name': 'routine_shoulders_traps', 'color': red},
     ];
 
     return SafeArea(
@@ -33,24 +34,15 @@ class RoutinesView extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context).pushReplacementNamed('/home');
                   },
-                  child: const Text(
-                    'Atrás',
-                    style: TextStyle(
-                      color: red,
-                      fontSize: 16,
-                    ),
-                  ),
+                  child: const TextTranslation('back_button'),
                 ),
 
                 const SizedBox(height: 16),
 
                 // Título
-                const Text(
-                  'Rutinas',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                const TextTranslation(
+                  'routines_title',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
 
                 const SizedBox(height: 16),
@@ -59,7 +51,8 @@ class RoutinesView extends StatelessWidget {
                 Expanded(
                   child: ListView.separated(
                     itemCount: routines.length,
-                    separatorBuilder: (_, __) => const Divider(color: Colors.grey),
+                    separatorBuilder:
+                        (_, __) => const Divider(color: Colors.grey),
                     itemBuilder: (context, index) {
                       final item = routines[index];
                       return Padding(
@@ -80,15 +73,15 @@ class RoutinesView extends StatelessWidget {
 
                             // Nombre de la rutina
                             Expanded(
-                              child: Text(
+                              child: TextTranslation(
                                 item['name'] as String,
                                 style: const TextStyle(fontSize: 16),
                               ),
                             ),
 
                             // Texto "INICIO"
-                            const Text(
-                              'INICIO',
+                            const TextTranslation(
+                              'routine_start',
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -121,4 +114,3 @@ class RoutinesView extends StatelessWidget {
     );
   }
 }
-
