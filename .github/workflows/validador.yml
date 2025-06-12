@@ -7,7 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  flutter-checks:
+    name: Flutter Validador Checks
     runs-on: ubuntu-latest
 
     steps:
@@ -24,19 +25,10 @@ jobs:
         run: flutter pub get
 
       - name: Analyze code
-        run: |
-          flutter analyze > analyze_output.txt
-          cat analyze_output.txt
-          if grep -q "error •" analyze_output.txt; then
-            echo "Se encontraron errores."
-            exit 1
-          else
-            echo "No hay errores. Ignorando advertencias."
-          fi
+        run: flutter analyze
 
       - name: Run tests
         run: flutter test
 
       - name: Build APK
         run: flutter build apk --debug
-        
