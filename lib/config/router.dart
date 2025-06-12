@@ -14,11 +14,6 @@ final GoRouter appRouter = GoRouter(
       },
     ),
     GoRoute(
-      path: "/uicontrols",
-      builder: (context, state) => UiConstrolsScreen(),
-      name: UiConstrolsScreen.name,
-    ),
-    GoRoute(
       path: "/register",
       builder: (context, state) => RegisterScreen(),
       name: RegisterScreen.name,
