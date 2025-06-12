@@ -56,5 +56,20 @@
   "progress_card_heading": "Heading",
   "progress_card_subheading": "Subheading",
   "progress_item_title": "Exercise Top",
-  "progress_item_description": "Menu description."
+  "progress_item_description": "Menu description.",
+  "developer_mode_title": "Developer Mode",
+  "developer_mode_subtitle": "Additional controls",
+  "transportations_title": "Transportations",
+  "transportation_car": "Car",
+  "transportation_car_subtitle": "Travel by car",
+  "transportation_moto": "Motorcycle",
+  "transportation_moto_subtitle": "Travel by motorcycle",
+  "transportation_train": "Train",
+  "transportation_train_subtitle": "Travel by train",
+  "breakfast_title": "Breakfast?",
+  "breakfast_subtitle": "Do you want breakfast?",
+  "lunch_title": "Lunch?",
+  "lunch_subtitle": "Do you want lunch?",
+  "dinner_title": "Dinner?",
+  "dinner_subtitle": "Do you want dinner?"
 }

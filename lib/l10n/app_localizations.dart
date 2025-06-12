@@ -358,6 +358,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Menu description.'**
   String get progress_item_description;
+
+  /// No description provided for @developer_mode_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Developer Mode'**
+  String get developer_mode_title;
+
+  /// No description provided for @developer_mode_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Additional controls'**
+  String get developer_mode_subtitle;
+
+  /// No description provided for @transportations_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Transportations'**
+  String get transportations_title;
+
+  /// No description provided for @transportation_car.
+  ///
+  /// In en, this message translates to:
+  /// **'Car'**
+  String get transportation_car;
+
+  /// No description provided for @transportation_car_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel by car'**
+  String get transportation_car_subtitle;
+
+  /// No description provided for @transportation_moto.
+  ///
+  /// In en, this message translates to:
+  /// **'Motorcycle'**
+  String get transportation_moto;
+
+  /// No description provided for @transportation_moto_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel by motorcycle'**
+  String get transportation_moto_subtitle;
+
+  /// No description provided for @transportation_train.
+  ///
+  /// In en, this message translates to:
+  /// **'Train'**
+  String get transportation_train;
+
+  /// No description provided for @transportation_train_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Travel by train'**
+  String get transportation_train_subtitle;
+
+  /// No description provided for @breakfast_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Breakfast?'**
+  String get breakfast_title;
+
+  /// No description provided for @breakfast_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want breakfast?'**
+  String get breakfast_subtitle;
+
+  /// No description provided for @lunch_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Lunch?'**
+  String get lunch_title;
+
+  /// No description provided for @lunch_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want lunch?'**
+  String get lunch_subtitle;
+
+  /// No description provided for @dinner_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Dinner?'**
+  String get dinner_title;
+
+  /// No description provided for @dinner_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want dinner?'**
+  String get dinner_subtitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

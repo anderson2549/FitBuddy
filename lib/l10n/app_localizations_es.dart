@@ -141,4 +141,49 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get progress_item_description => 'Descripción del menú.';
+
+  @override
+  String get developer_mode_title => 'Modo desarrollador';
+
+  @override
+  String get developer_mode_subtitle => 'Controles adicionales';
+
+  @override
+  String get transportations_title => 'Transportes';
+
+  @override
+  String get transportation_car => 'Carro';
+
+  @override
+  String get transportation_car_subtitle => 'Viajar en carro';
+
+  @override
+  String get transportation_moto => 'Moto';
+
+  @override
+  String get transportation_moto_subtitle => 'Viajar en moto';
+
+  @override
+  String get transportation_train => 'Tren';
+
+  @override
+  String get transportation_train_subtitle => 'Viajar en tren';
+
+  @override
+  String get breakfast_title => '¿Desayuno?';
+
+  @override
+  String get breakfast_subtitle => '¿Quieres desayuno?';
+
+  @override
+  String get lunch_title => '¿Almuerzo?';
+
+  @override
+  String get lunch_subtitle => '¿Quieres almuerzo?';
+
+  @override
+  String get dinner_title => '¿Cena?';
+
+  @override
+  String get dinner_subtitle => '¿Quieres cena?';
 }

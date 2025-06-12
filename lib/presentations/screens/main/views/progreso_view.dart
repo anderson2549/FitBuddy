@@ -8,7 +8,7 @@ class ProgressView extends StatelessWidget {
   Widget build(BuildContext context) {
     const red = Color(0xFFD32F2F);
     // Datos de ejemplo para la gráfica
-    final values = <double>[0.7, 0.5, 0.9, 0.8, 0.6, 0.7, 0.5, 0.5];
+    final values = <double>[0.7, 0.5, 0.9, 0.8, 0.6, 0.7, 0.5, 0.5, 0.5, 0.5];
 
     Widget buildBar(double fraction) {
       const barHeight = 120.0;

@@ -34,11 +34,6 @@ La app soporta múltiples idiomas usando archivos ARB y la generación automáti
 5. Si agregas una nueva clave, puede aparecer un error en el archivo generado `app_localizations.dart` hasta que ejecutes los comandos anteriores y se regenere el código. No olvides implementar el nuevo método si usas extensiones personalizadas.
 6. Una vez implementado el método, ejecuta el comando `flutter pub run build_runner build --delete-conflicting-outputs` para generar la clase de acceso personalizada.
 
-### Recursos útiles
-
-- [Flutter Internationalization Guide](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization)
-- [Arb file format](https://github.com/google/app-resource-bundle/wiki/ApplicationResourceBundleSpecification)
-
 ## Generar Android App Bundle (AAB)
 
 Para generar un compilado de AAB para distribución en Google Play, sigue estos pasos:
@@ -57,7 +52,15 @@ Para generar un compilado de AAB para distribución en Google Play, sigue estos 
 4. El archivo generado estará en la carpeta `build/app/outputs/bundle/release/` con el nombre `app.aab`.
 5. Sube el archivo `.aab` a Google Play Console para su distribución.
 
+## Licencia
+
+Este proyecto está protegido por derechos de autor y se distribuye bajo la siguiente licencia:
+
+**Todos los derechos reservados © 2023 FitBuddy.**  
+El uso, distribución o modificación de este código sin autorización explícita está estrictamente prohibido.  
+Para obtener permisos de uso, por favor contacta al propietario del proyecto.
+
 ### Recursos útiles
 
-- [Flutter Build Documentation](https://docs.flutter.dev/deployment/android)
-- [Google Play Console](https://play.google.com/console)
+- [Flutter Internationalization Guide](https://docs.flutter.dev/ui/accessibility-and-internationalization/internationalization)
+- [Arb file format](https://github.com/google/app-resource-bundle/wiki/ApplicationResourceBundleSpecification)
