@@ -1,3 +1,4 @@
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
 
 class ButtonAtom extends StatelessWidget {
@@ -18,7 +19,7 @@ class ButtonAtom extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
         textStyle: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
       ),
-      child: Text(texto),
+      child: TextTranslation(texto),
     );
   }
 }
