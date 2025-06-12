@@ -141,4 +141,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get progress_item_description => 'Menu description.';
+
+  @override
+  String get developer_mode_title => 'Developer Mode';
+
+  @override
+  String get developer_mode_subtitle => 'Additional controls';
+
+  @override
+  String get transportations_title => 'Transportations';
+
+  @override
+  String get transportation_car => 'Car';
+
+  @override
+  String get transportation_car_subtitle => 'Travel by car';
+
+  @override
+  String get transportation_moto => 'Motorcycle';
+
+  @override
+  String get transportation_moto_subtitle => 'Travel by motorcycle';
+
+  @override
+  String get transportation_train => 'Train';
+
+  @override
+  String get transportation_train_subtitle => 'Travel by train';
+
+  @override
+  String get breakfast_title => 'Breakfast?';
+
+  @override
+  String get breakfast_subtitle => 'Do you want breakfast?';
+
+  @override
+  String get lunch_title => 'Lunch?';
+
+  @override
+  String get lunch_subtitle => 'Do you want lunch?';
+
+  @override
+  String get dinner_title => 'Dinner?';
+
+  @override
+  String get dinner_subtitle => 'Do you want dinner?';
 }

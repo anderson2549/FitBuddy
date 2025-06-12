@@ -38,18 +38,18 @@ class _ControlUIViewState extends State<_ControlUIView> {
               (e) => setState(() {
                 isDeveloper = !isDeveloper;
               }),
-          title: Text('Developer Mode'),
-          subtitle: Text('controles adicionales'),
+          title: Text('developer_mode_title'),
+          subtitle: Text('developer_mode_subtitle'),
         ),
         ExpansionTile(
           enabled: true,
-          title: Text('Transportations'),
+          title: Text('transportations_title'),
           subtitle: Text('$transpor'),
           //initiallyExpanded: true,
           children: [
             RadioListTile(
-              title: Text("Carro"),
-              subtitle: Text("viajaar carro"),
+              title: Text('transportation_car'),
+              subtitle: Text('transportation_car_subtitle'),
               value: Transportation.car,
               groupValue: transpor,
               onChanged:
@@ -58,8 +58,8 @@ class _ControlUIViewState extends State<_ControlUIView> {
                   }),
             ),
             RadioListTile(
-              title: Text("moto"),
-              subtitle: Text("viajaar moto"),
+              title: Text('transportation_moto'),
+              subtitle: Text('transportation_moto_subtitle'),
               value: Transportation.moto,
               groupValue: transpor,
               onChanged:
@@ -68,8 +68,8 @@ class _ControlUIViewState extends State<_ControlUIView> {
                   }),
             ),
             RadioListTile(
-              title: Text("tren"),
-              subtitle: Text("viajaar tren"),
+              title: Text('transportation_train'),
+              subtitle: Text('transportation_train_subtitle'),
 
               value: Transportation.train,
               groupValue: transpor,
@@ -82,8 +82,8 @@ class _ControlUIViewState extends State<_ControlUIView> {
         ),
 
         CheckboxListTile(
-          title: Text('Desayuno?'),
-          subtitle: Text('Quiere desa'),
+          title: Text('breakfast_title'),
+          subtitle: Text('breakfast_subtitle'),
           value: wantBreakfast,
           onChanged: (value) {
             wantBreakfast = !wantBreakfast;
@@ -91,8 +91,8 @@ class _ControlUIViewState extends State<_ControlUIView> {
           },
         ),
         CheckboxListTile(
-          title: Text('almuerzo?'),
-          subtitle: Text('Quiere desa'),
+          title: Text('lunch_title'),
+          subtitle: Text('lunch_subtitle'),
           value: wantLunch,
           onChanged: (value) {
             wantLunch = !wantLunch;
@@ -100,8 +100,8 @@ class _ControlUIViewState extends State<_ControlUIView> {
           },
         ),
         CheckboxListTile(
-          title: Text('cena?'),
-          subtitle: Text('Quiere cena'),
+          title: Text('dinner_title'),
+          subtitle: Text('dinner_subtitle'),
           value: wantDinner,
           onChanged: (value) {
             wantDinner = !wantDinner;

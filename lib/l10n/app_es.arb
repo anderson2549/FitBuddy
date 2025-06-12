@@ -55,5 +55,20 @@
     "progress_card_heading": "Encabezado",
     "progress_card_subheading": "Subtítulo",
     "progress_item_title": "Ejercicio Principal",
-    "progress_item_description": "Descripción del menú."
+    "progress_item_description": "Descripción del menú.",
+    "developer_mode_title": "Modo desarrollador",
+    "developer_mode_subtitle": "Controles adicionales",
+    "transportations_title": "Transportes",
+    "transportation_car": "Carro",
+    "transportation_car_subtitle": "Viajar en carro",
+    "transportation_moto": "Moto",
+    "transportation_moto_subtitle": "Viajar en moto",
+    "transportation_train": "Tren",
+    "transportation_train_subtitle": "Viajar en tren",
+    "breakfast_title": "¿Desayuno?",
+    "breakfast_subtitle": "¿Quieres desayuno?",
+    "lunch_title": "¿Almuerzo?",
+    "lunch_subtitle": "¿Quieres almuerzo?",
+    "dinner_title": "¿Cena?",
+    "dinner_subtitle": "¿Quieres cena?"
 }
