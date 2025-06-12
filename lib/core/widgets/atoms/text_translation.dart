@@ -2,7 +2,6 @@ import 'dart:developer' as developer;
 
 import 'package:fitbuddy/l10n/app_localizations.localizations_access.g.dart';
 import 'package:flutter/material.dart';
-import 'package:fitbuddy/l10n/app_localizations.dart';
 
 class TextTranslation extends StatelessWidget {
   final String keyName;
