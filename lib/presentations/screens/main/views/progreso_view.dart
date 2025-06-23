@@ -1,4 +1,3 @@
-import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fitbuddy/providers/progress_provider.dart';
@@ -24,8 +23,8 @@ class ProgressView extends ConsumerWidget {
     }
 
     // 2️⃣ Convierto a lista y ordeno por fecha
-    final entries = data.entries.toList()
-      ..sort((a, b) => a.key.compareTo(b.key));
+    final entries =
+        data.entries.toList()..sort((a, b) => a.key.compareTo(b.key));
 
     // 3️⃣ Preparo lista de ejercicios de hoy y conteos
     final todayKey = DateTime.now().toIso8601String().substring(0, 10);
@@ -42,7 +41,10 @@ class ProgressView extends ConsumerWidget {
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('$pct%', style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+          Text(
+            '$pct%',
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+          ),
           const SizedBox(height: 4),
           Stack(
             alignment: Alignment.bottomCenter,
@@ -79,8 +81,10 @@ class ProgressView extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Center(
-              child: Text('Progreso Fit', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
-
+              child: Text(
+                'Progreso Fit',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
             ),
             const SizedBox(height: 24),
 
@@ -90,29 +94,31 @@ class ProgressView extends ConsumerWidget {
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
-                boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 6)],
+                boxShadow: const [
+                  BoxShadow(color: Colors.black12, blurRadius: 6),
+                ],
               ),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
-                  children: entries.map((entry) {
-                    final date = entry.key;            // "YYYY-MM-DD"
-                    final label = date.substring(5);    // "MM-DD"
-                    final pct = entry.value.percent;
-                    return Padding(
-                      padding: const EdgeInsets.only(right: 16),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          buildBar(pct),
-                          const SizedBox(height: 8),
-                          Text(label, style: const TextStyle(fontSize: 12)),
-                        ],
-                      ),
-                    );
-                  }).toList(),
-
+                  children:
+                      entries.map((entry) {
+                        final date = entry.key; // "YYYY-MM-DD"
+                        final label = date.substring(5); // "MM-DD"
+                        final pct = entry.value.percent;
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 16),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              buildBar(pct),
+                              const SizedBox(height: 8),
+                              Text(label, style: const TextStyle(fontSize: 12)),
+                            ],
+                          ),
+                        );
+                      }).toList(),
                 ),
               ),
             ),
@@ -121,7 +127,10 @@ class ProgressView extends ConsumerWidget {
 
             // — Lista de ejercicios de HOY con repeticiones —
             if (uniqueNames.isNotEmpty) ...[
-              const Text('Ejercicios de hoy', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text(
+                'Ejercicios de hoy',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
               const SizedBox(height: 8),
               ListView.separated(
                 shrinkWrap: true,
@@ -133,12 +142,17 @@ class ProgressView extends ConsumerWidget {
                   final reps = repCounts[name]!;
                   return ListTile(
                     contentPadding: EdgeInsets.zero,
-                    leading: const Icon(Icons.check_circle_outline, color: Colors.green),
+                    leading: const Icon(
+                      Icons.check_circle_outline,
+                      color: Colors.green,
+                    ),
                     title: Text(name),
-                    trailing: Text('x$reps', style: const TextStyle(fontWeight: FontWeight.bold)),
+                    trailing: Text(
+                      'x$reps',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
                   );
                 },
-
               ),
             ],
           ],
