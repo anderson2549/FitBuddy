@@ -1,35 +1,64 @@
-import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fitbuddy/providers/progress_provider.dart';
 
-class ProgressView extends StatelessWidget {
-  const ProgressView({super.key});
+class ProgressView extends ConsumerWidget {
+  const ProgressView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     const red = Color(0xFFD32F2F);
-    // Datos de ejemplo para la gráfica
-    final values = <double>[0.7, 0.5, 0.9, 0.8, 0.6, 0.7, 0.5, 0.5, 0.5, 0.5];
+
+    // 1️⃣ Obtengo el mapa de progreso (fecha → ProgressData)
+    final data = ref.watch(progressProvider);
+
+    // Si no hay datos, muestro un placeholder
+    if (data.isEmpty) {
+      return Center(
+        child: Text(
+          'Aún no has completado ningún ejercicio.',
+          style: TextStyle(fontSize: 16, color: Colors.black54),
+        ),
+      );
+    }
+
+    // 2️⃣ Convierto a lista y ordeno por fecha
+    final entries =
+        data.entries.toList()..sort((a, b) => a.key.compareTo(b.key));
+
+    // 3️⃣ Preparo lista de ejercicios de hoy y conteos
+    final todayKey = DateTime.now().toIso8601String().substring(0, 10);
+    final todaysList = data[todayKey]?.exercises ?? [];
+    final repCounts = <String, int>{};
+    for (var name in todaysList) {
+      repCounts[name] = (repCounts[name] ?? 0) + 1;
+    }
+    final uniqueNames = repCounts.keys.toList();
 
     Widget buildBar(double fraction) {
-      const barHeight = 120.0;
+      final pct = (fraction * 100).round();
+      const height = 120.0;
       return Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Text(
+            '$pct%',
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 4),
           Stack(
             alignment: Alignment.bottomCenter,
             children: [
-              // Barra de fondo
               Container(
-                height: barHeight,
+                height: height,
                 width: 16,
                 decoration: BoxDecoration(
                   color: Colors.grey[300],
                   borderRadius: BorderRadius.circular(8),
                 ),
               ),
-              // Fracción coloreada
               Container(
-                height: barHeight * fraction,
+                height: height * fraction,
                 width: 16,
                 decoration: BoxDecoration(
                   color: red,
@@ -41,8 +70,6 @@ class ProgressView extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 8),
-          const TextTranslation('Item', style: TextStyle(fontSize: 12)),
         ],
       );
     }
@@ -53,99 +80,81 @@ class ProgressView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Título
             const Center(
-              child: TextTranslation(
+              child: Text(
                 'Progreso Fit',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
             ),
-
             const SizedBox(height: 24),
 
-            // Gráfica de barras horizontal
+            // — Gráfica de barras sólo con fechas que tienen datos —
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 6,
-                    offset: const Offset(0, 3),
-                  ),
+                boxShadow: const [
+                  BoxShadow(color: Colors.black12, blurRadius: 6),
                 ],
               ),
               child: SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.end,
                   children:
-                      values
-                          .map(
-                            (v) => Padding(
-                              padding: const EdgeInsets.only(right: 16),
-                              child: buildBar(v),
-                            ),
-                          )
-                          .toList(),
+                      entries.map((entry) {
+                        final date = entry.key; // "YYYY-MM-DD"
+                        final label = date.substring(5); // "MM-DD"
+                        final pct = entry.value.percent;
+                        return Padding(
+                          padding: const EdgeInsets.only(right: 16),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              buildBar(pct),
+                              const SizedBox(height: 8),
+                              Text(label, style: const TextStyle(fontSize: 12)),
+                            ],
+                          ),
+                        );
+                      }).toList(),
                 ),
               ),
             ),
 
             const SizedBox(height: 32),
 
-            // Tarjeta con lista de ejercicios
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(color: Colors.grey[300]!),
-                borderRadius: BorderRadius.circular(12),
+            // — Lista de ejercicios de HOY con repeticiones —
+            if (uniqueNames.isNotEmpty) ...[
+              const Text(
+                'Ejercicios de hoy',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              child: Column(
-                children: [
-                  // Encabezado
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        TextTranslation(
-                          'Heading',
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 4),
-                        TextTranslation(
-                          'Heading',
-                          style: TextStyle(fontSize: 14, color: Colors.black54),
-                        ),
-                      ],
+              const SizedBox(height: 8),
+              ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: uniqueNames.length,
+                separatorBuilder: (_, __) => const Divider(height: 1),
+                itemBuilder: (_, i) {
+                  final name = uniqueNames[i];
+                  final reps = repCounts[name]!;
+                  return ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: const Icon(
+                      Icons.check_circle_outline,
+                      color: Colors.green,
                     ),
-                  ),
-                  const Divider(height: 1, color: Colors.grey),
-
-                  // Lista de ítems
-                  ...List.generate(50, (i) {
-                    return ListTile(
-                      leading: const Icon(Icons.star_border),
-                      title: const TextTranslation('Exercise Top'),
-                      subtitle: const TextTranslation('Menu description.'),
-                      trailing: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: const [
-                          Icon(Icons.arrow_upward, size: 16),
-                          SizedBox(width: 4),
-                          TextTranslation('A'),
-                        ],
-                      ),
-                    );
-                  }),
-                ],
+                    title: Text(name),
+                    trailing: Text(
+                      'x$reps',
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  );
+                },
               ),
-            ),
+            ],
           ],
         ),
       ),
