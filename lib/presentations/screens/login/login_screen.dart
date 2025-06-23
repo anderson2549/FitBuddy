@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fitbuddy/core/widgets/atoms/forms/input_field_atom.dart';
 import 'package:fitbuddy/core/widgets/molecules/forms/submit_section.dart';
 import 'package:go_router/go_router.dart';
+import 'forgot_password_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   static const name = 'login_screen';
@@ -91,11 +92,16 @@ class LoginScreen extends StatelessWidget {
               // Recuperar contraseña and Crear cuenta options
               TextButton(
                 onPressed: () {
-                  // Logic for password recovery
-                  debugPrint('Recuperar contraseña');
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ForgotPasswordScreen(),
+                    ),
+                  );
                 },
-                child: const Text('Recuperar contraseña'),
+                child: const Text('¿Olvidaste tu contraseña?'),
               ),
+
               TextButton(
                 onPressed: () {
                   context.go('/register'); // Navigate to the register screen
