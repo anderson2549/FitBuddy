@@ -38,10 +38,7 @@ class _PerfilViewState extends State<PerfilView> {
         backgroundColor: Colors.transparent,
         elevation: 0,
         leadingWidth: 70,
-        leading: TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text('Atrás', style: TextStyle(color: _red, fontSize: 16)),
-        ),
+      
       ),
       body: SafeArea(
         child: SingleChildScrollView(
