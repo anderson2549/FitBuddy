@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fitbuddy/providers/progress_provider.dart';
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
+
 
 class RoutinesView extends ConsumerStatefulWidget {
   const RoutinesView({Key? key}) : super(key: key);
@@ -26,6 +28,7 @@ class _RoutinesViewState extends ConsumerState<RoutinesView> {
     {'name': 'Espalda - Lumbar',       'gif': 'assets/images/gift/Espalda.gif'},
     {'name': 'Hombro - Trapecio',      'gif': 'assets/images/gift/Hombro.gif'},
   ];
+
 
   void _showExerciseDialog(BuildContext context, String name, String gifPath) {
     showDialog(
@@ -58,12 +61,12 @@ class _RoutinesViewState extends ConsumerState<RoutinesView> {
           isResting = true;
           seconds = 60;
 
+
           // Añade esta serie al provider
           ref.read(progressProvider.notifier).addExercise(today, name, totalExercises);
 
           // Preparamos la próxima serie
           series++;
-
           timer = Timer.periodic(const Duration(seconds: 1), (t) {
             if (!active) { t.cancel(); return; }
             setModalState(() {

@@ -11,7 +11,7 @@ import 'package:fitbuddy/l10n/app_localizations.dart';
 class TextLang {
   final BuildContext _buildContext;
 
-  TextLang(BuildContext this._buildContext);
+  TextLang(this._buildContext);
 
   /// Obtiene una traducción por clave. Si la clave corresponde a un método con parámetros,
   /// usa [getByKeyWithArgs].
@@ -57,6 +57,54 @@ class TextLang {
         return AppLocalizations.of(_buildContext)!.menu_controltheme_title;
       case 'menu_controltheme_subtitle':
         return AppLocalizations.of(_buildContext)!.menu_controltheme_subtitle;
+      case 'home_title':
+        return AppLocalizations.of(_buildContext)!.home_title;
+      case 'objectives_title':
+        return AppLocalizations.of(_buildContext)!.objectives_title;
+      case 'progress_label':
+        return AppLocalizations.of(_buildContext)!.progress_label;
+      case 'objective_lose_weight':
+        return AppLocalizations.of(_buildContext)!.objective_lose_weight;
+      case 'objective_gain_muscle':
+        return AppLocalizations.of(_buildContext)!.objective_gain_muscle;
+      case 'objective_improve_fitness':
+        return AppLocalizations.of(_buildContext)!.objective_improve_fitness;
+      case 'back_button':
+        return AppLocalizations.of(_buildContext)!.back_button;
+      case 'routines_title':
+        return AppLocalizations.of(_buildContext)!.routines_title;
+      case 'routine_start':
+        return AppLocalizations.of(_buildContext)!.routine_start;
+      case 'routine_warmup':
+        return AppLocalizations.of(_buildContext)!.routine_warmup;
+      case 'routine_hip':
+        return AppLocalizations.of(_buildContext)!.routine_hip;
+      case 'routine_abs_waist':
+        return AppLocalizations.of(_buildContext)!.routine_abs_waist;
+      case 'routine_legs_glutes':
+        return AppLocalizations.of(_buildContext)!.routine_legs_glutes;
+      case 'routine_chest':
+        return AppLocalizations.of(_buildContext)!.routine_chest;
+      case 'routine_biceps_forearms':
+        return AppLocalizations.of(_buildContext)!.routine_biceps_forearms;
+      case 'routine_triceps':
+        return AppLocalizations.of(_buildContext)!.routine_triceps;
+      case 'routine_back_lumbar':
+        return AppLocalizations.of(_buildContext)!.routine_back_lumbar;
+      case 'routine_shoulders_traps':
+        return AppLocalizations.of(_buildContext)!.routine_shoulders_traps;
+      case 'progress_title':
+        return AppLocalizations.of(_buildContext)!.progress_title;
+      case 'progress_item_label':
+        return AppLocalizations.of(_buildContext)!.progress_item_label;
+      case 'progress_card_heading':
+        return AppLocalizations.of(_buildContext)!.progress_card_heading;
+      case 'progress_card_subheading':
+        return AppLocalizations.of(_buildContext)!.progress_card_subheading;
+      case 'progress_item_title':
+        return AppLocalizations.of(_buildContext)!.progress_item_title;
+      case 'progress_item_description':
+        return AppLocalizations.of(_buildContext)!.progress_item_description;
       default:
         return null;
     }

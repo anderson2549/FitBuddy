@@ -1,3 +1,4 @@
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
@@ -8,7 +9,7 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     const red = Color(0xFFD32F2F);
 
-    Widget _buildObjectiveItem(String text, Color dotColor) {
+    Widget buildObjectiveItem(String key, Color dotColor) {
       return Column(
         children: [
           Row(
@@ -25,7 +26,10 @@ class HomeView extends StatelessWidget {
               ),
               const SizedBox(width: 12),
               Expanded(
-                child: Text(text, style: const TextStyle(fontSize: 16)),
+                child: TextTranslation(
+                  key,
+                  style: const TextStyle(fontSize: 16),
+                ),
               ),
             ],
           ),
@@ -57,12 +61,9 @@ class HomeView extends StatelessWidget {
                     child: const Icon(Icons.image, color: Colors.white),
                   ),
                   const SizedBox(width: 12),
-                  const Text(
-                    'FitBody',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  const TextTranslation(
+                    'home_title',
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -71,13 +72,17 @@ class HomeView extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Título con sombra
-            const Text(
-              'Objetivos:',
+            const TextTranslation(
+              'objectives_title',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 shadows: [
-                  Shadow(offset: Offset(0, 1), blurRadius: 2, color: Colors.black26),
+                  Shadow(
+                    offset: Offset(0, 1),
+                    blurRadius: 2,
+                    color: Colors.black26,
+                  ),
                 ],
               ),
             ),
@@ -99,14 +104,21 @@ class HomeView extends StatelessWidget {
                 center: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
-                      'Avances',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: red),
+                    TextTranslation(
+                      'progress_label',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                        color: red,
+                      ),
                     ),
                     const SizedBox(height: 4),
                     const Text(
                       '70%',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ],
                 ),
@@ -116,12 +128,9 @@ class HomeView extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Lista de objetivos
-            _buildObjectiveItem('Perder peso', red),
-            _buildObjectiveItem('Ganar masa muscular', red.withOpacity(0.7)),
-            _buildObjectiveItem(
-              'Mejorar la condición física y calidad de vida',
-              red,
-            ),
+            buildObjectiveItem('objective_lose_weight', red),
+            buildObjectiveItem('objective_gain_muscle', red.withOpacity(0.7)),
+            buildObjectiveItem('objective_improve_fitness', red),
           ],
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fitbuddy/providers/progress_provider.dart';
@@ -79,6 +80,7 @@ class ProgressView extends ConsumerWidget {
           children: [
             const Center(
               child: Text('Progreso Fit', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+
             ),
             const SizedBox(height: 24),
 
@@ -110,6 +112,7 @@ class ProgressView extends ConsumerWidget {
                       ),
                     );
                   }).toList(),
+
                 ),
               ),
             ),
@@ -135,6 +138,7 @@ class ProgressView extends ConsumerWidget {
                     trailing: Text('x$reps', style: const TextStyle(fontWeight: FontWeight.bold)),
                   );
                 },
+
               ),
             ],
           ],

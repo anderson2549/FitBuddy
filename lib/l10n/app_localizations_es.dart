@@ -69,4 +69,121 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get menu_controltheme_subtitle => 'Control de tema';
+
+  @override
+  String get home_title => 'FitBody';
+
+  @override
+  String get objectives_title => 'Objetivos:';
+
+  @override
+  String get progress_label => 'Avances';
+
+  @override
+  String get objective_lose_weight => 'Perder peso';
+
+  @override
+  String get objective_gain_muscle => 'Ganar masa muscular';
+
+  @override
+  String get objective_improve_fitness => 'Mejorar la condición física y calidad de vida';
+
+  @override
+  String get back_button => 'Atrás';
+
+  @override
+  String get routines_title => 'Rutinas';
+
+  @override
+  String get routine_start => 'INICIO';
+
+  @override
+  String get routine_warmup => 'Calentamiento';
+
+  @override
+  String get routine_hip => 'Cadera';
+
+  @override
+  String get routine_abs_waist => 'Abdomen - Cintura';
+
+  @override
+  String get routine_legs_glutes => 'Piernas - Glúteos';
+
+  @override
+  String get routine_chest => 'Pecho';
+
+  @override
+  String get routine_biceps_forearms => 'Bíceps - Antebrazos';
+
+  @override
+  String get routine_triceps => 'Tríceps';
+
+  @override
+  String get routine_back_lumbar => 'Espalda - Lumbar';
+
+  @override
+  String get routine_shoulders_traps => 'Hombros - Trapecios';
+
+  @override
+  String get progress_title => 'Progreso Fit';
+
+  @override
+  String get progress_item_label => 'Elemento';
+
+  @override
+  String get progress_card_heading => 'Encabezado';
+
+  @override
+  String get progress_card_subheading => 'Subtítulo';
+
+  @override
+  String get progress_item_title => 'Ejercicio Principal';
+
+  @override
+  String get progress_item_description => 'Descripción del menú.';
+
+  @override
+  String get developer_mode_title => 'Modo desarrollador';
+
+  @override
+  String get developer_mode_subtitle => 'Controles adicionales';
+
+  @override
+  String get transportations_title => 'Transportes';
+
+  @override
+  String get transportation_car => 'Carro';
+
+  @override
+  String get transportation_car_subtitle => 'Viajar en carro';
+
+  @override
+  String get transportation_moto => 'Moto';
+
+  @override
+  String get transportation_moto_subtitle => 'Viajar en moto';
+
+  @override
+  String get transportation_train => 'Tren';
+
+  @override
+  String get transportation_train_subtitle => 'Viajar en tren';
+
+  @override
+  String get breakfast_title => '¿Desayuno?';
+
+  @override
+  String get breakfast_subtitle => '¿Quieres desayuno?';
+
+  @override
+  String get lunch_title => '¿Almuerzo?';
+
+  @override
+  String get lunch_subtitle => '¿Quieres almuerzo?';
+
+  @override
+  String get dinner_title => '¿Cena?';
+
+  @override
+  String get dinner_subtitle => '¿Quieres cena?';
 }

@@ -1,10 +1,5 @@
-import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:fitbuddy/menu_items/menu_items.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fitbuddy/config/provider/locale_provider.dart';
-import 'package:fitbuddy/core/widgets/atoms/forms/custom_submit_button_atom.dart';
 import 'package:fitbuddy/core/widgets/molecules/forms/submit_section.dart';
 /*
 class HomeScreen extends ConsumerWidget {

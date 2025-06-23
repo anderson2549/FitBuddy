@@ -1,20 +1,23 @@
+import 'package:fitbuddy/core/widgets/molecules/modals/change_lang.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fitbuddy/config/provider/locale_provider.dart';
 import 'package:fitbuddy/presentations/screens/main/views/perfil_view.dart';
 import 'package:fitbuddy/presentations/screens/main/views/rutina_view.dart';
 import 'package:fitbuddy/presentations/screens/main/views/home_view.dart';
 import 'package:fitbuddy/presentations/screens/main/views/progreso_view.dart';
 import 'package:fitbuddy/presentations/screens/main/views/notificaciones_view.dart';
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends ConsumerStatefulWidget {
   static const name = 'main_screen';
 
   const MainScreen({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  ConsumerState<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends ConsumerState<MainScreen> {
   int _currentIndex = 2; // Default to "Home"
 
   final List<Widget> _screens = const [
@@ -28,14 +31,29 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final locale = ref.watch(localeProvider);
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          '',
-          style: TextStyle(color: theme.colorScheme.onPrimary),
-        ),
+        //title: Text('', style: TextStyle(color: theme.colorScheme.onPrimary)),
         backgroundColor: theme.colorScheme.primary,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.language),
+            color: theme.colorScheme.onPrimary,
+            tooltip: 'Cambiar idioma',
+            iconSize: 30,
+            onPressed: () {
+              showLanguageSelector(
+                context,
+                currentLocale: locale,
+                onSelected: (newLocale) {
+                  ref.read(localeProvider.notifier).state = newLocale;
+                },
+              );
+            },
+          ),
+        ],
       ),
       body: IndexedStack(index: _currentIndex, children: _screens),
       bottomNavigationBar: BottomNavigationBar(

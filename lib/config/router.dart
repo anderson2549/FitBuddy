@@ -14,54 +14,9 @@ final GoRouter appRouter = GoRouter(
       },
     ),
     GoRoute(
-      path: "/buttons",
-      builder: (context, state) => ButtonsScreen(),
-      name: ButtonsScreen.name,
-    ),
-    GoRoute(
-      path: "/cards",
-      builder: (context, state) => CardsScreen(),
-      name: CardsScreen.name,
-    ),
-    GoRoute(
-      path: "/progress",
-      builder: (context, state) => ProgressScreen(),
-      name: ProgressScreen.name,
-    ),
-    GoRoute(
-      path: "/snackbars",
-      builder: (context, state) => SnackbarScreen(),
-      name: SnackbarScreen.name,
-    ),
-    GoRoute(
-      path: "/animation",
-      builder: (context, state) => AnimatedScreen(),
-      name: AnimatedScreen.name,
-    ),
-    GoRoute(
-      path: "/uicontrols",
-      builder: (context, state) => UiConstrolsScreen(),
-      name: UiConstrolsScreen.name,
-    ),
-    GoRoute(
-      path: "/tutorial",
-      builder: (context, state) => AppTutorialScreen(),
-      name: AppTutorialScreen.name,
-    ),
-    GoRoute(
       path: "/register",
       builder: (context, state) => RegisterScreen(),
       name: RegisterScreen.name,
-    ),
-    GoRoute(
-      path: "/scroll",
-      builder: (context, state) => InfiniteScrollScreen(),
-      name: InfiniteScrollScreen.name,
-    ),
-    GoRoute(
-      path: "/controltheme",
-      builder: (context, state) => ThemeChanger(),
-      name: ThemeChanger.name,
     ),
     GoRoute(
       path: "/login",
