@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
+import 'package:go_router/go_router.dart';
 
 class RoutinesView extends StatelessWidget {
   const RoutinesView({super.key});
@@ -10,15 +11,15 @@ class RoutinesView extends StatelessWidget {
 
     // Tus datos de rutinas
     final routines = <Map<String, dynamic>>[
-      {'name': 'routine_warmup', 'color': red},
-      {'name': 'routine_hip', 'color': red.withOpacity(0.7)},
-      {'name': 'routine_abs_waist', 'color': red},
-      {'name': 'routine_legs_glutes', 'color': red.withOpacity(0.7)},
-      {'name': 'routine_chest', 'color': red},
-      {'name': 'routine_biceps_forearms', 'color': red.withOpacity(0.7)},
-      {'name': 'routine_triceps', 'color': red},
-      {'name': 'routine_back_lumbar', 'color': red.withOpacity(0.7)},
-      {'name': 'routine_shoulders_traps', 'color': red},
+      {'name': 'routine_warmup', 'color': red, 'key': 'routine_warmup'},
+      {'name': 'routine_hip', 'color': red.withOpacity(0.7), 'key': 'routine_hip'},
+      {'name': 'routine_abs_waist', 'color': red, 'key': 'routine_abs_waist'},
+      {'name': 'routine_legs_glutes', 'color': red.withOpacity(0.7), 'key': 'routine_legs_glutes'},
+      {'name': 'routine_chest', 'color': red, 'key': 'routine_chest'},
+      {'name': 'routine_biceps_forearms', 'color': red.withOpacity(0.7), 'key': 'routine_biceps_forearms'},
+      {'name': 'routine_triceps', 'color': red, 'key': 'routine_triceps'},
+      {'name': 'routine_back_lumbar', 'color': red.withOpacity(0.7), 'key': 'routine_back_lumbar'},
+      {'name': 'routine_shoulders_traps', 'color': red, 'key': 'routine_shoulders_traps'},
     ];
 
     return SafeArea(
@@ -79,12 +80,31 @@ class RoutinesView extends StatelessWidget {
                               ),
                             ),
 
-                            // Texto "INICIO"
-                            const TextTranslation(
-                              'routine_start',
-                              style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.bold,
+                            // Botón "INICIO" - Ahora es interactivo
+                            GestureDetector(
+                              onTap: () {
+                                // Navegar a la pantalla de detalle de rutina
+                                context.push(
+                                  '/routine-detail?name=${item['name']}&key=${item['key']}',
+                                );
+                              },
+                              child: Container(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 6,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: red,
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const TextTranslation(
+                                  'routine_start',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
                               ),
                             ),
                           ],

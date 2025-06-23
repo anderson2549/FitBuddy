@@ -31,3 +31,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/gifs/
+    - assets/gifs/calentamiento/
+    - assets/gifs/cadera/
+    - assets/gifs/abdomen_cintura/
+    - assets/gifs/piernas_gluteos/
+    - assets/gifs/pecho/
+    - assets/gifs/biceps_antebrazos/
+    - assets/gifs/triceps/
+    - assets/gifs/espalda_lumbar/
+    - assets/gifs/hombros_trapecios/
