@@ -28,87 +28,90 @@ class LoginScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // Icon at the top
-              Icon(
-                Icons.fitness_center,
-                size: 100,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              const SizedBox(height: 32),
+          child: Center(
+            child: ListView(
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(16.0),
 
-              // Email field
-              InputFieldAtom(
-                controller: emailController,
-                labelText: 'Correo',
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'El correo es obligatorio.';
-                  }
-                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                    return 'Ingrese un correo válido.';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16),
+              children: [
+                // Icon at the top
+                Icon(
+                  Icons.fitness_center,
+                  size: 100,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                const SizedBox(height: 32),
 
-              // Password field
-              InputFieldAtom(
-                controller: passwordController,
-                labelText: 'Contraseña',
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'La contraseña es obligatoria.';
-                  }
-                  if (value.length < 6) {
-                    return 'La contraseña debe tener al menos 6 caracteres.';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 24),
+                // Email field
+                InputFieldAtom(
+                  controller: emailController,
+                  labelText: 'Correo',
+                  obscureText: false,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'El correo es obligatorio.';
+                    }
+                    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                      return 'Ingrese un correo válido.';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
 
-              // Submit button
-              SubmitSection(
-                text: 'Iniciar sesión',
-                onPressed: () {
-                  if (formKey.currentState?.validate() ?? false) {
-                    _handleLogin(
+                // Password field
+                InputFieldAtom(
+                  controller: passwordController,
+                  labelText: 'Contraseña',
+                  obscureText: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'La contraseña es obligatoria.';
+                    }
+                    if (value.length < 6) {
+                      return 'La contraseña debe tener al menos 6 caracteres.';
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 24),
+
+                // Submit button
+                SubmitSection(
+                  text: 'Iniciar sesión',
+                  onPressed: () {
+                    if (formKey.currentState?.validate() ?? false) {
+                      _handleLogin(
+                        context,
+                        emailController.text.trim(),
+                        passwordController.text.trim(),
+                      );
+                    }
+                  },
+                ),
+                const SizedBox(height: 16),
+
+                // Recuperar contraseña and Crear cuenta options
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
                       context,
-                      emailController.text.trim(),
-                      passwordController.text.trim(),
+                      MaterialPageRoute(
+                        builder: (context) => ForgotPasswordScreen(),
+                      ),
                     );
-                  }
-                },
-              ),
-              const SizedBox(height: 16),
+                  },
+                  child: const Text('¿Olvidaste tu contraseña?'),
+                ),
 
-              // Recuperar contraseña and Crear cuenta options
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ForgotPasswordScreen(),
-                    ),
-                  );
-                },
-                child: const Text('¿Olvidaste tu contraseña?'),
-              ),
-
-              TextButton(
-                onPressed: () {
-                  context.go('/register'); // Navigate to the register screen
-                },
-                child: const Text('Crear cuenta'),
-              ),
-            ],
+                TextButton(
+                  onPressed: () {
+                    context.go('/register'); // Navigate to the register screen
+                  },
+                  child: const Text('Crear cuenta'),
+                ),
+              ],
+            ),
           ),
         ),
       ),

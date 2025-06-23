@@ -34,18 +34,7 @@ class _PerfilViewState extends State<PerfilView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leadingWidth: 70,
-        leading: TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: TextTranslation(
-            'Atrás',
-            style: TextStyle(color: _red, fontSize: 16),
-          ),
-        ),
-      ),
+      appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 24),
