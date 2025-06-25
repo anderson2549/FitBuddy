@@ -11,7 +11,7 @@ import 'package:fitbuddy/l10n/app_localizations.dart';
 class TextLang {
   final BuildContext _buildContext;
 
-  TextLang(this._buildContext);
+  TextLang(BuildContext this._buildContext);
 
   /// Obtiene una traducción por clave. Si la clave corresponde a un método con parámetros,
   /// usa [getByKeyWithArgs].
@@ -137,14 +137,24 @@ class TextLang {
         return AppLocalizations.of(_buildContext)!.dinner_title;
       case 'dinner_subtitle':
         return AppLocalizations.of(_buildContext)!.dinner_subtitle;
-      case 'forgot_password_text':
-        return AppLocalizations.of(_buildContext)!.forgot_password_text;
-      case 'create_account_text':
-        return AppLocalizations.of(_buildContext)!.create_account_text;
+      case 'email_label_text':
+        return AppLocalizations.of(_buildContext)!.email_label_text;
+      case 'email_required_text':
+        return AppLocalizations.of(_buildContext)!.email_required_text;
+      case 'email_invalid_text':
+        return AppLocalizations.of(_buildContext)!.email_invalid_text;
+      case 'password_label_text':
+        return AppLocalizations.of(_buildContext)!.password_label_text;
       case 'password_required_text':
         return AppLocalizations.of(_buildContext)!.password_required_text;
       case 'password_min_length_text':
         return AppLocalizations.of(_buildContext)!.password_min_length_text;
+      case 'forgot_password_text':
+        return AppLocalizations.of(_buildContext)!.forgot_password_text;
+      case 'create_account_text':
+        return AppLocalizations.of(_buildContext)!.create_account_text;
+      case 'login_button_text':
+        return AppLocalizations.of(_buildContext)!.login_button_text;
       default:
         return null;
     }
