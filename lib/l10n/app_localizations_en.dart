@@ -186,4 +186,31 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dinner_subtitle => 'Do you want dinner?';
+
+  @override
+  String get email_label_text => 'Email';
+
+  @override
+  String get email_required_text => 'Email is required.';
+
+  @override
+  String get email_invalid_text => 'Enter a valid email.';
+
+  @override
+  String get password_label_text => 'Password';
+
+  @override
+  String get password_required_text => 'Password is required.';
+
+  @override
+  String get password_min_length_text => 'Password must be at least 6 characters.';
+
+  @override
+  String get forgot_password_text => 'Forgot your password?';
+
+  @override
+  String get create_account_text => 'Create an account';
+
+  @override
+  String get login_button_text => 'Log in';
 }

@@ -3,6 +3,7 @@ import 'package:fitbuddy/core/widgets/atoms/forms/input_field_atom.dart';
 import 'package:fitbuddy/core/widgets/molecules/forms/submit_section.dart';
 import 'package:go_router/go_router.dart';
 import 'forgot_password_screen.dart';
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 
 class LoginScreen extends StatelessWidget {
   static const name = 'login_screen';
@@ -28,87 +29,117 @@ class LoginScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              // Icon at the top
-              Icon(
-                Icons.fitness_center,
-                size: 100,
-                color: Theme.of(context).colorScheme.primary,
-              ),
-              const SizedBox(height: 32),
+          child: Center(
+            child: ListView(
+              shrinkWrap: true,
+              padding: const EdgeInsets.all(16.0),
 
-              // Email field
-              InputFieldAtom(
-                controller: emailController,
-                labelText: 'Correo',
-                obscureText: false,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'El correo es obligatorio.';
-                  }
-                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                    return 'Ingrese un correo válido.';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 16),
+              children: [
+                // Icon at the top
+                Icon(
+                  Icons.fitness_center,
+                  size: 100,
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+                const SizedBox(height: 32),
 
-              // Password field
-              InputFieldAtom(
-                controller: passwordController,
-                labelText: 'Contraseña',
-                obscureText: true,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'La contraseña es obligatoria.';
-                  }
-                  if (value.length < 6) {
-                    return 'La contraseña debe tener al menos 6 caracteres.';
-                  }
-                  return null;
-                },
-              ),
-              const SizedBox(height: 24),
-
-              // Submit button
-              SubmitSection(
-                text: 'Iniciar sesión',
-                onPressed: () {
-                  if (formKey.currentState?.validate() ?? false) {
-                    _handleLogin(
-                      context,
-                      emailController.text.trim(),
-                      passwordController.text.trim(),
-                    );
-                  }
-                },
-              ),
-              const SizedBox(height: 16),
-
-              // Recuperar contraseña and Crear cuenta options
-              TextButton(
-                onPressed: () {
-                  Navigator.push(
+                // Email field
+                InputFieldAtom(
+                  controller: emailController,
+                  labelText: TextTranslation.getString(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => ForgotPasswordScreen(),
-                    ),
-                  );
-                },
-                child: const Text('¿Olvidaste tu contraseña?'),
-              ),
+                    'email_label_text', // Key for translation
+                  ),
+                  obscureText: false,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return TextTranslation.getString(
+                        context,
+                        'email_required_text', // Key for translation
+                      );
+                    }
+                    if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
+                      return TextTranslation.getString(
+                        context,
+                        'email_invalid_text', // Key for translation
+                      );
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 16),
 
-              TextButton(
-                onPressed: () {
-                  context.go('/register'); // Navigate to the register screen
-                },
-                child: const Text('Crear cuenta'),
-              ),
-            ],
+                // Password field
+                InputFieldAtom(
+                  controller: passwordController,
+                  labelText: TextTranslation.getString(
+                    context,
+                    'password_label_text', // Key for translation
+                  ),
+                  obscureText: true,
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return TextTranslation.getString(
+                        context,
+                        'password_required_text', // Key for translation
+                      );
+                    }
+                    if (value.length < 6) {
+                      return TextTranslation.getString(
+                        context,
+                        'password_min_length_text', // Key for translation
+                      );
+                    }
+                    return null;
+                  },
+                ),
+                const SizedBox(height: 24),
+
+                // Submit button
+                SubmitSection(
+                  text: TextTranslation.getString(
+                    context,
+                    'login_button_text', // Key for translation
+                  ),
+                  onPressed: () {
+                    if (formKey.currentState?.validate() ?? false) {
+                      _handleLogin(
+                        context,
+                        emailController.text.trim(),
+                        passwordController.text.trim(),
+                      );
+                    }
+                  },
+                ),
+                const SizedBox(height: 16),
+
+                // Recuperar contraseña and Crear cuenta options
+                TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ForgotPasswordScreen(),
+                      ),
+                    );
+                  },
+                  child: TextTranslation(
+                    'forgot_password_text', // Key for translation
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+
+                TextButton(
+                  onPressed: () {
+                    context.go('/register'); // Navigate to the register screen
+                  },
+                  child: TextTranslation(
+                    'create_account_text', // Key for translation
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

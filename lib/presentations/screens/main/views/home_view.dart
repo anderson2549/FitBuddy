@@ -61,7 +61,7 @@ class HomeView extends StatelessWidget {
                     child: const Icon(Icons.image, color: Colors.white),
                   ),
                   const SizedBox(width: 12),
-                  const TextTranslation(
+                  TextTranslation(
                     'home_title',
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
@@ -72,7 +72,7 @@ class HomeView extends StatelessWidget {
             const SizedBox(height: 32),
 
             // Título con sombra
-            const TextTranslation(
+            TextTranslation(
               'objectives_title',
               style: TextStyle(
                 fontSize: 20,

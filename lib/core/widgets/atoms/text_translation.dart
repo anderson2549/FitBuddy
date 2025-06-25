@@ -43,13 +43,14 @@ class TextTranslation extends StatelessWidget {
   Widget build(BuildContext context) {
     final textLang = TextLang(context);
 
-    String translatedText =
+    final translatedText =
         (textLang.getByKey(keyName) ??
             textLang.getByKeyWithArgs(
               keyName,
               positionalArgs: positionalArgs,
             )) ??
-        keyName;
+        keyName; // Initialize translatedText locally in build
+
     developer.log(
       'TextTranslation: keyName: $keyName, translatedText: $translatedText',
       name: 'TextTranslation',
@@ -70,5 +71,21 @@ class TextTranslation extends StatelessWidget {
       textWidthBasis: textWidthBasis,
       textHeightBehavior: textHeightBehavior,
     );
+  }
+
+  static String getString(
+    BuildContext context,
+    String keyName, {
+    List<dynamic>? positionalArgs = const [],
+  }) {
+    final textLang = TextLang(context);
+    final translatedText =
+        (textLang.getByKey(keyName) ??
+            textLang.getByKeyWithArgs(
+              keyName,
+              positionalArgs: positionalArgs,
+            )) ??
+        keyName;
+    return translatedText;
   }
 }

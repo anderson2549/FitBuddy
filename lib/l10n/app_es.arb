@@ -70,5 +70,14 @@
     "lunch_title": "¿Almuerzo?",
     "lunch_subtitle": "¿Quieres almuerzo?",
     "dinner_title": "¿Cena?",
-    "dinner_subtitle": "¿Quieres cena?"
+    "dinner_subtitle": "¿Quieres cena?",
+    "email_label_text": "Correo",
+    "email_required_text": "El correo es obligatorio.",
+    "email_invalid_text": "Ingrese un correo válido.",
+    "password_label_text": "Contraseña",
+    "password_required_text": "La contraseña es obligatoria.",
+    "password_min_length_text": "La contraseña debe tener al menos 6 caracteres.",
+    "forgot_password_text": "¿Olvidaste tu contraseña?",
+    "create_account_text": "Crear cuenta",
+    "login_button_text": "Iniciar sesión"
 }

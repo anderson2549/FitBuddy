@@ -1,5 +1,4 @@
 {
-  
   "hello": "Hello {userName} you age {age}!",
   "@hello": {
     "description": "A message with a single parameter",
@@ -71,5 +70,14 @@
   "lunch_title": "Lunch?",
   "lunch_subtitle": "Do you want lunch?",
   "dinner_title": "Dinner?",
-  "dinner_subtitle": "Do you want dinner?"
+  "dinner_subtitle": "Do you want dinner?",
+  "email_label_text": "Email",
+  "email_required_text": "Email is required.",
+  "email_invalid_text": "Enter a valid email.",
+  "password_label_text": "Password",
+  "password_required_text": "Password is required.",
+  "password_min_length_text": "Password must be at least 6 characters.",
+  "forgot_password_text": "Forgot your password?",
+  "create_account_text": "Create an account",
+  "login_button_text": "Log in"
 }

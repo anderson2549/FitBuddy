@@ -448,6 +448,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Do you want dinner?'**
   String get dinner_subtitle;
+
+  /// No description provided for @email_label_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email_label_text;
+
+  /// No description provided for @email_required_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Email is required.'**
+  String get email_required_text;
+
+  /// No description provided for @email_invalid_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid email.'**
+  String get email_invalid_text;
+
+  /// No description provided for @password_label_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password_label_text;
+
+  /// No description provided for @password_required_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Password is required.'**
+  String get password_required_text;
+
+  /// No description provided for @password_min_length_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Password must be at least 6 characters.'**
+  String get password_min_length_text;
+
+  /// No description provided for @forgot_password_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot your password?'**
+  String get forgot_password_text;
+
+  /// No description provided for @create_account_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an account'**
+  String get create_account_text;
+
+  /// No description provided for @login_button_text.
+  ///
+  /// In en, this message translates to:
+  /// **'Log in'**
+  String get login_button_text;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
