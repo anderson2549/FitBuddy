@@ -203,7 +203,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get password_required_text => 'Password is required.';
 
   @override
-  String get password_min_length_text => 'Password must be at least 6 characters.';
+  String get password_min_length_text =>
+      'Password must be at least 6 characters.';
 
   @override
   String get forgot_password_text => 'Forgot your password?';

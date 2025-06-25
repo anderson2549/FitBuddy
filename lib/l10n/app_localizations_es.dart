@@ -86,7 +86,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get objective_gain_muscle => 'Ganar masa muscular';
 
   @override
-  String get objective_improve_fitness => 'Mejorar la condición física y calidad de vida';
+  String get objective_improve_fitness =>
+      'Mejorar la condición física y calidad de vida';
 
   @override
   String get back_button => 'Atrás';
@@ -203,7 +204,8 @@ class AppLocalizationsEs extends AppLocalizations {
   String get password_required_text => 'La contraseña es obligatoria.';
 
   @override
-  String get password_min_length_text => 'La contraseña debe tener al menos 6 caracteres.';
+  String get password_min_length_text =>
+      'La contraseña debe tener al menos 6 caracteres.';
 
   @override
   String get forgot_password_text => '¿Olvidaste tu contraseña?';
