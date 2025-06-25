@@ -3,6 +3,7 @@ import 'package:fitbuddy/core/widgets/atoms/forms/input_field_atom.dart';
 import 'package:fitbuddy/core/widgets/molecules/forms/submit_section.dart';
 import 'package:go_router/go_router.dart';
 import 'forgot_password_screen.dart';
+import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 
 class LoginScreen extends StatelessWidget {
   static const name = 'login_screen';
@@ -45,14 +46,23 @@ class LoginScreen extends StatelessWidget {
                 // Email field
                 InputFieldAtom(
                   controller: emailController,
-                  labelText: 'Correo',
+                  labelText: TextTranslation.getString(
+                    context,
+                    'email_label_text', // Key for translation
+                  ),
                   obscureText: false,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'El correo es obligatorio.';
+                      return TextTranslation.getString(
+                        context,
+                        'email_required_text', // Key for translation
+                      );
                     }
                     if (!RegExp(r'^[^@]+@[^@]+\.[^@]+').hasMatch(value)) {
-                      return 'Ingrese un correo válido.';
+                      return TextTranslation.getString(
+                        context,
+                        'email_invalid_text', // Key for translation
+                      );
                     }
                     return null;
                   },
@@ -62,14 +72,23 @@ class LoginScreen extends StatelessWidget {
                 // Password field
                 InputFieldAtom(
                   controller: passwordController,
-                  labelText: 'Contraseña',
+                  labelText: TextTranslation.getString(
+                    context,
+                    'password_label_text', // Key for translation
+                  ),
                   obscureText: true,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'La contraseña es obligatoria.';
+                      return TextTranslation.getString(
+                        context,
+                        'password_required_text', // Key for translation
+                      );
                     }
                     if (value.length < 6) {
-                      return 'La contraseña debe tener al menos 6 caracteres.';
+                      return TextTranslation.getString(
+                        context,
+                        'password_min_length_text', // Key for translation
+                      );
                     }
                     return null;
                   },
@@ -78,7 +97,10 @@ class LoginScreen extends StatelessWidget {
 
                 // Submit button
                 SubmitSection(
-                  text: 'Iniciar sesión',
+                  text: TextTranslation.getString(
+                    context,
+                    'login_button_text', // Key for translation
+                  ),
                   onPressed: () {
                     if (formKey.currentState?.validate() ?? false) {
                       _handleLogin(
@@ -101,14 +123,20 @@ class LoginScreen extends StatelessWidget {
                       ),
                     );
                   },
-                  child: const Text('¿Olvidaste tu contraseña?'),
+                  child: TextTranslation(
+                    'forgot_password_text', // Key for translation
+                    style: TextStyle(color: Colors.blue),
+                  ),
                 ),
 
                 TextButton(
                   onPressed: () {
                     context.go('/register'); // Navigate to the register screen
                   },
-                  child: const Text('Crear cuenta'),
+                  child: TextTranslation(
+                    'create_account_text', // Key for translation
+                    style: TextStyle(color: Colors.blue),
+                  ),
                 ),
               ],
             ),

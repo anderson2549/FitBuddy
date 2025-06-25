@@ -11,7 +11,7 @@ import 'package:fitbuddy/l10n/app_localizations.dart';
 class TextLang {
   final BuildContext _buildContext;
 
-  TextLang(this._buildContext);
+  TextLang(BuildContext this._buildContext);
 
   /// Obtiene una traducción por clave. Si la clave corresponde a un método con parámetros,
   /// usa [getByKeyWithArgs].
@@ -105,6 +105,46 @@ class TextLang {
         return AppLocalizations.of(_buildContext)!.progress_item_title;
       case 'progress_item_description':
         return AppLocalizations.of(_buildContext)!.progress_item_description;
+      case 'developer_mode_title':
+        return AppLocalizations.of(_buildContext)!.developer_mode_title;
+      case 'developer_mode_subtitle':
+        return AppLocalizations.of(_buildContext)!.developer_mode_subtitle;
+      case 'transportations_title':
+        return AppLocalizations.of(_buildContext)!.transportations_title;
+      case 'transportation_car':
+        return AppLocalizations.of(_buildContext)!.transportation_car;
+      case 'transportation_car_subtitle':
+        return AppLocalizations.of(_buildContext)!.transportation_car_subtitle;
+      case 'transportation_moto':
+        return AppLocalizations.of(_buildContext)!.transportation_moto;
+      case 'transportation_moto_subtitle':
+        return AppLocalizations.of(_buildContext)!.transportation_moto_subtitle;
+      case 'transportation_train':
+        return AppLocalizations.of(_buildContext)!.transportation_train;
+      case 'transportation_train_subtitle':
+        return AppLocalizations.of(
+          _buildContext,
+        )!.transportation_train_subtitle;
+      case 'breakfast_title':
+        return AppLocalizations.of(_buildContext)!.breakfast_title;
+      case 'breakfast_subtitle':
+        return AppLocalizations.of(_buildContext)!.breakfast_subtitle;
+      case 'lunch_title':
+        return AppLocalizations.of(_buildContext)!.lunch_title;
+      case 'lunch_subtitle':
+        return AppLocalizations.of(_buildContext)!.lunch_subtitle;
+      case 'dinner_title':
+        return AppLocalizations.of(_buildContext)!.dinner_title;
+      case 'dinner_subtitle':
+        return AppLocalizations.of(_buildContext)!.dinner_subtitle;
+      case 'forgot_password_text':
+        return AppLocalizations.of(_buildContext)!.forgot_password_text;
+      case 'create_account_text':
+        return AppLocalizations.of(_buildContext)!.create_account_text;
+      case 'password_required_text':
+        return AppLocalizations.of(_buildContext)!.password_required_text;
+      case 'password_min_length_text':
+        return AppLocalizations.of(_buildContext)!.password_min_length_text;
       default:
         return null;
     }

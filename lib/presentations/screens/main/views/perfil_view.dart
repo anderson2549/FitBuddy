@@ -50,7 +50,7 @@ class _PerfilViewState extends State<PerfilView> {
               ),
               const SizedBox(height: 16),
               // Nombre
-              const TextTranslation(
+              TextTranslation(
                 'Victo Robertson',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),

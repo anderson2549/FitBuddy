@@ -186,4 +186,31 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get dinner_subtitle => '¿Quieres cena?';
+
+  @override
+  String get email_label_text => 'Correo';
+
+  @override
+  String get email_required_text => 'El correo es obligatorio.';
+
+  @override
+  String get email_invalid_text => 'Ingrese un correo válido.';
+
+  @override
+  String get password_label_text => 'Contraseña';
+
+  @override
+  String get password_required_text => 'La contraseña es obligatoria.';
+
+  @override
+  String get password_min_length_text => 'La contraseña debe tener al menos 6 caracteres.';
+
+  @override
+  String get forgot_password_text => '¿Olvidaste tu contraseña?';
+
+  @override
+  String get create_account_text => 'Crear cuenta';
+
+  @override
+  String get login_button_text => 'Iniciar sesión';
 }
