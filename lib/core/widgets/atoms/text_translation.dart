@@ -21,7 +21,7 @@ class TextTranslation extends StatelessWidget {
   final TextWidthBasis? textWidthBasis;
   final TextHeightBehavior? textHeightBehavior;
 
-  TextTranslation(
+  const TextTranslation(
     this.keyName, {
     super.key,
     this.positionalArgs,
