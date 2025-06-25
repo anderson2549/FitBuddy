@@ -1,138 +1,166 @@
-import 'package:fitbuddy/core/widgets/atoms/text_translation.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fitbuddy/providers/progress_provider.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class HomeView extends ConsumerWidget {
+  const HomeView({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     const red = Color(0xFFD32F2F);
 
-    Widget buildObjectiveItem(String key, Color dotColor) {
-      return Column(
-        children: [
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: 10,
-                height: 10,
-                margin: const EdgeInsets.only(top: 4),
-                decoration: BoxDecoration(
-                  color: dotColor,
-                  shape: BoxShape.circle,
-                ),
-              ),
-              const SizedBox(width: 12),
-              Expanded(
-                child: TextTranslation(
-                  key,
-                  style: const TextStyle(fontSize: 16),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          const Divider(color: Colors.grey),
-          const SizedBox(height: 12),
-        ],
-      );
+    // 1️⃣ Mapeo de objetivos → lista de ejercicios asociados
+    const objectiveMap = {
+      'Perder peso': ['Calentamiento', 'Trotar'],
+      'Ganar masa muscular': [
+        'Abdomen - cintura',
+        'Pierna - Pantorrilla - Glúteo',
+        'Pecho',
+        'Bíceps - Antebrazo',
+        'Tríceps',
+        'Espalda - Lumbar',
+        'Hombro - Trapecio',
+      ],
+      'Mejorar condición física': [
+        'Calentamiento',
+        'Trotar',
+        'Abdomen - cintura',
+        'Pierna - Pantorrilla - Glúteo',
+      ],
+    };
+
+    // 2️⃣ Obtengo todos los ejercicios hechos hoy
+    final data = ref.watch(progressProvider);
+    final todayKey = DateTime.now().toIso8601String().substring(0, 10);
+    final todaysExercises = data[todayKey]?.exercises ?? [];
+
+    // 3️⃣ Calculo porcentajes por objetivo
+    final Map<String, double> objPercents = {};
+    for (var entry in objectiveMap.entries) {
+      final totalItems = entry.value.length;
+      final done = todaysExercises.where((e) => entry.value.contains(e)).length;
+      objPercents[entry.key] = (done / totalItems).clamp(0.0, 1.0);
     }
 
-    return SafeArea(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Logo + título centrados
-            Center(
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      color: Colors.black87,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: const Icon(Icons.image, color: Colors.white),
-                  ),
-                  const SizedBox(width: 12),
-                  TextTranslation(
-                    'home_title',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Objetivos Fitness'),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black,
+        elevation: 0,
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Objetivos:',
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
-            ),
+              const SizedBox(height: 24),
 
-            const SizedBox(height: 32),
-
-            // Título con sombra
-            TextTranslation(
-              'objectives_title',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                shadows: [
-                  Shadow(
-                    offset: Offset(0, 1),
-                    blurRadius: 2,
-                    color: Colors.black26,
-                  ),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            // Indicador circular animado
-            Center(
-              child: CircularPercentIndicator(
-                radius: 160,
-                lineWidth: 8,
-                percent: 0.7,
-                animation: true,
-                animationDuration: 1200,
-                startAngle: 270,
-                circularStrokeCap: CircularStrokeCap.round,
-                backgroundColor: Colors.grey[300]!,
-                progressColor: red,
-                center: Column(
-                  mainAxisSize: MainAxisSize.min,
+              // — Gráfico circular global (opcional) —
+              Center(
+                child: Stack(
+                  alignment: Alignment.center,
                   children: [
-                    TextTranslation(
-                      'progress_label',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
+                    SizedBox(
+                      width: 180,
+                      height: 180,
+                      child: CircularProgressIndicator(
+                        value: 1,
+                        strokeWidth: 12,
+                        color: Colors.grey[300],
+                      ),
+                    ),
+                    SizedBox(
+                      width: 180,
+                      height: 180,
+                      child: CircularProgressIndicator(
+                        // promedio de los 3 objetivos
+                        value: objPercents.values.fold(0.0, (a, b) => a + b) /
+                            objPercents.length,
+                        strokeWidth: 12,
                         color: red,
                       ),
                     ),
-                    const SizedBox(height: 4),
-                    const Text(
-                      '70%',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                    Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          'Avance total',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text(
+                          '${((objPercents.values.fold(0.0, (a, b) => a + b) / objPercents.length) * 100).round()}%',
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: red,
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
               ),
-            ),
 
-            const SizedBox(height: 32),
+              const SizedBox(height: 32),
 
-            // Lista de objetivos
-            buildObjectiveItem('objective_lose_weight', red),
-            buildObjectiveItem('objective_gain_muscle', red.withOpacity(0.7)),
-            buildObjectiveItem('objective_improve_fitness', red),
-          ],
+              // — Lista de cada objetivo con su porcentaje individual —
+              ...objectiveMap.keys.map((label) {
+                final pct = objPercents[label] ?? 0.0;
+                final pctText = '${(pct * 100).round()}%';
+                return Column(
+                  children: [
+                    _buildObjectiveRow(label, pctText, red),
+                    const Divider(),
+                  ],
+                );
+              }).toList(),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget _buildObjectiveRow(String label, String pct, Color dotColor) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        children: [
+          Container(
+            width: 8,
+            height: 8,
+            decoration: BoxDecoration(
+              color: dotColor,
+              shape: BoxShape.circle,
+            ),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              label,
+              style: const TextStyle(fontSize: 16),
+            ),
+          ),
+          Text(
+            pct,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+              color: dotColor,
+            ),
+          ),
+        ],
       ),
     );
   }
